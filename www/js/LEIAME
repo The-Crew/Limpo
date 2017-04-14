@@ -1,0 +1,17 @@
+Os métodos serão divididos nas seguintes camadas:
+VIEW - Todos os métodos referentes a solicitar página, abrir popups, informar erro, etc.
+MODEL - Todos os modelos dos objetos do app (Usuario e Imoveis)
+CONTROLLER - Todos os métodos responsáveis por receber, tratar, verificar, enviar, controlar os dados no app.
+SERVER - Todos os mátodos responsáveis por lidar com o servidor (enviar e receber dados)
+
+Os arquivos js serão criados por "função ou classe" sempre que necessário, e renomeados com o nome de sua camada a frente. 
+Exemplos: 
+controller.obterdados.js (Função responsável por obter os dados digitado pelo usuário)
+controller.core.js (Função responsável por manter o tráfego de dados entre as classes e métodos do app)
+controller.verificar (Função responsável por verficar se os dados estão corretos)
+model.user.js (Classe do objeto de usuario)
+model.imovel.js (Classe do objeto dos imóveis)
+view.pagina.js (Funções responsáveis por chamar páginas e popups)
+view.err.js (Função responsável por informar erros)
+
+A ideia é tentar manter a organização no código, para evitar um emaranhado de códigos em um único arquivo.
