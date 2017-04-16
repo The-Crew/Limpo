@@ -9,8 +9,8 @@ var err = function(dados){
             if(!dados.nome){
                 deixarCampoVermelho('nome');
             }
-            if(!dados.data){
-                deixarCampoVermelho('data');
+            if(!dados.cpf){
+                deixarCampoVermelho('cpf');
             }
             if(!dados.sexo){
                 deixarCampoVermelho('sexo');

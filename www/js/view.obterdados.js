@@ -8,11 +8,12 @@ var obterDados = function(tipo, dados=null){
     switch(tipo){
         case 'user':
                 
-            User.tipo = 'alert';
-            User.nome = document.getElementById('nome').value;
-            User.data = document.getElementById('data').value;
-            //User.sexo = document.getElementById('sexo').value;
-            //User.email = document.getElementById('email').value;
+            User.tipo = 'user';
+            User.nome = $("#nome").val();
+            User.cpf = $("#cpf").val();
+            User.sexo = $("#sexo").val();
+            User.email = $("#email").val();
+            User.fone = $("#fone").val();
             
             controller.verificar(User);
 

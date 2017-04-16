@@ -7,7 +7,7 @@
 var Server = function(){
     
     this.enviar = function(dados){
-        console.log("OBJETO ENVIADO: "+dados);
+        console.log("OBJETO ENVIADO: "+JSON.stringify(dados));
     }
     
     this.obter = function(dados){

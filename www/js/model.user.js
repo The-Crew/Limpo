@@ -5,8 +5,10 @@
   @filipe
 */
 User = {
+	'tipo':'user',
     'nome':'',
-    'data':'',
+    'cpf':'',
     'sexo':'',
     'email':'',
+    'fone':''
 };
