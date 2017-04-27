@@ -9,20 +9,32 @@
 
 var View = function(){
 
+	this.enviarDados = function(tipo, dados=null){
+		/* debuando */
+		debug('view.js - view.enviarDados()',tipo, dados);
+		/* */
+
+		enviarDados(tipo, dados);
+	}
+
 	this.obterDados = function(tipo, dados=null){
+		/* debuando */
+		debug('view.js - view.obterDados()',tipo, dados);
+		/* */
+
 		obterDados(tipo, dados);
 	}
 
-	this.err = function (dados){
-		err(dados);
+	this.err = function (dados, tipo){
+		err(dados, tipo);
 	}
 
 	this.pagina = function (pagina){
 		chamarPágina(pagina);
 	}
 
-	this.popup = function (tipo, dados){
-		exibirPopup(tipo, dados);
+	this.popup = function (dados, tipo){
+		exibirPopup(dados, tipo);
 	}
 
 }
