@@ -30,7 +30,7 @@ var View = function(){
 	}
 
 	this.pagina = function (pagina){
-		chamarPágina(pagina);
+		chamarPagina(pagina);
 	}
 
 	this.popup = function (dados, tipo){

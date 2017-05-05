@@ -6,10 +6,12 @@
 
 var Server = function(){
     
-    var servidor = 'http://localhost:3131';
+    var servidor = 'http://192.168.0.101:3131';
 
-    this.enviar = function(dados){
-
+    this.enviar = function(dados, callback){
+    	/* debuando */
+		debug("server.js - server.enviar() - OBJETO ENVIADO", JSON.stringify(dados));
+		/* */
     	var retorno;
 
         jQuery.ajax({
@@ -19,16 +21,18 @@ var Server = function(){
 		url: servidor,
 		success: function(data) {
 			retorno = data;
+			/* debuando */
+			debug("server.js - server.enviar() - DADOS RETORNADO DO SEVIDOR", data);
+			/* */
+			callback.call(null, data);
 		}
 		});
-		/* debuando */
-		debug("server.js - server.enviar() - OBJETO ENVIADO", JSON.stringify(dados));
-		/* */
+
         return retorno;
     }
     
-    this.obter = function(dados){
-
+    this.obter = function(dados, callback){
+    	
     	var retorno;
 
     	jQuery.ajax({
@@ -38,12 +42,14 @@ var Server = function(){
 		url: servidor,
 		success: function(data) {
 			retorno = data;
+			/* debuando */
+	    	debug("server.js - server.obter() - DADOS OBTIDOS", data);
+			/* */
+			callback.call(null, data);
 		}
 		});
-    	/* debuando */
-    	debug("server.js - server.obter() - DADOS OBTIDOS", retorno);
-		/* */
-    	return returno;
+    	
+    	return retorno;
     }
 }
 

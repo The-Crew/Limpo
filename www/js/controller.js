@@ -14,7 +14,7 @@ function debug(frase, dados1="", dados2="", dados3="", dados4=""){
 
 	if(debug){
 		if(debugPopup){
-			alert(frase+': ');
+			alert(frase+': '+dados);
    		}else{
 			console.log(frase+': '+dados);
 		}
@@ -78,48 +78,149 @@ var Controller = function (){
 		/* */
 		switch(tipo){
 			case 'user':
-				if(controller.verificar(dados, tipo)){
+				if(controller.verificar(dados.dados, tipo)){
 					json = {};
-					json.nome = dados.getNome();
-					json.cpf = dados.getCpf();
-					json.sexo = dados.getSexo();
-					json.email = dados.getEmail();
-					json.fone = dados.getFone();
-					json.status = dados.getStatus();
-					json.tipo = dados.getTipo();
-					json.action = 'registrar';
 
-					var retorno = server.enviar(json);
-					if(!retorno){
-						/* debuando */
-						debug('controller.js - controller.registrar() - Dados retornado pelo server',retorno);
-						/* */
-						view.err('Falha ao registrar');
-					}
+            		json.action = dados.action == 'atualizar' ? 'atualizar' : 'registrar';
+					json.tipo = 'user';
+					json.idUser = dados.dados.getId();
+					//UMA FORMA PRATICA DE OBTER OS DADOS DO OBJETO
+					json.dados = dados.dados.getJson();
+
+					server.enviar(json, function(retorno){
+						retorno = JSON.parse(retorno);
+						if(retorno){
+							user.setJson(retorno);
+							if(json.action == 'registrar'){
+								//abrir pagina inicial
+								view.pagina('#inicial');
+							}else{
+								//ficar na pagina
+							}
+						}else{
+							/* debuando */
+							debug('controller.js - controller.registrar() - Dados retornado pelo server',retorno);
+							/* */
+							view.err('Falha ao registrar');
+						}
+					});
+					
 				}else{
-					view.err(dados);
+					view.err(dados.dados);
 				}
 			break;
 			case 'imovel':
-				if(controller.verificar(dados, tipo)){
+				if(controller.verificar(dados.dados, tipo)){
 					json = {};
-					json.nome = dados.getNome();
-					json.qtdComodos = dados.getQtdComodos();
-					json.lat = dados.getLat();
-					json.lng = dados.getLng();
-					json.status = dados.getStatus();
-					json.tipo = dados.getTipo();
-					json.action = 'registrar';
+            		json.action = dados.action == 'atualizar' ? 'atualizar' : 'registrar';
+					json.tipo = 'imovel';
+					json.idUser = user.getId();
+					//UMA FORMA PRATICA DE OBTER OS DADOS DO OBJETO
+					json.dados = dados.dados.getJson();
 
-					var retorno = server.enviar(json);
+					server.enviar(json, function(retorno){
+						retorno = JSON.parse(retorno);
+						if(retorno){
+							/*	AO ENVIAR E REGISTRAR O NOVO IMOVEL É RETORNADO UM NOVO
+								ARRAY DE IMOVEIS E O MESMO PRECISA SER NOVAMENTE INSTANCIADO
+								NO ARRAY DE IMOVEIS DO APP
+								NESSE CASO FOI NECESSÁRIO UM FOR PARA INSTANCIAR OS IMOVEIS
+								NO ARRAY DE IMOVEIS DO APP
+							*/
+							for(var i in retorno){
+								console.log('For 1 dos imoveis, i: '); console.log(i);
+								imoveis[i] = new Imovel();
+								//UMA FORMA PRATICA DE SETAR OS DADOS NO OBJETO
+								imoveis[i].setJson(retorno[i]);
+							}
+							console.log(imoveis);
+						}else{
+							/* debuando */
+							debug('controller.js - controller.registrar() - Dados retornado pelo server',retorno);
+							/* */
+							view.err('Falha ao registrar');
+						}
+					});
+					
+				}else{
+					view.err(dados.dados);
+				}
+			break;
+			case 'remover':
+				if(dados.tipo == 'user'){
+					var json = {};
+					json.idUser = dados.idUser;
+					json.action = 'remover';
+					json.tipo = 'user';
+					server.enviar(json, function(retorno){
+						console.log(retorno);
+					});
+				}else if(dados.tipo == 'imovel'){
+					var json = {};
+					json.idUser = user.getId();
+					json.idImovel = dados.idImovel;
+					json.action = 'remover';
+					json.tipo = 'imovel';
+					server.enviar(json, function(retorno){
+						console.log(retorno);
+					});
+				}
+			break;
+		}
+	}
+	this.solicitar = function(dados, tipo, callback){
+		/* debuando */
+        debug('controller.js - controller.solicitar()', dados, tipo);
+		/* */
+
+		switch(tipo){
+			case 'user':
+				/*	SOLICITAR DADOS DO USUARIO AO SERVIDOR.
+					OS DADOS SERÃO RETORNADOS COM TODAS INFORMAÇÕES DO USUARIO
+					@filipe
+				*/
+				server.obter(dados, function(retorno){
+					if(retorno){
+						// CONVERTER EM OBJETO
+						retorno = JSON.parse(retorno);
+						//UMA FORMA PRATICA DE SETAR OS DADOS NO OBJETO
+						user.setJson(retorno);
+
+						/*	IRÁ RETORNAR JUNTO COM OS DADOS O ARRAY DE IMOVEIS
+							NESSE CASO FOI NECESSÁRIO UM FOR PARA INSTANCIAR OS IMOVEIS
+							NO ARRAY DE IMOVEIS DO APP
+						*/
+						for(var i in retorno.imoveis){
+							console.log('For 1 dos imoveis, i: '); console.log(i);
+							imoveis[i] = new Imovel();
+							//UMA FORMA PRATICA DE SETAR OS DADOS NO OBJETO
+							imoveis[i].setJson(retorno.imoveis[i]);
+						}
+						console.log(imoveis);
+					}else{
+						/* debuando */
+						debug('controller.js - controller.solicitar() - Dados retornado pelo server',retorno);
+						/* */
+						view.err('Falha ao registrar');
+					}
+				});
+			break;
+			case 'imovel':
+				if(dados == 'array'){
+					var json={};
+					json.id = user.getId();
+					json.tipo = 'imovel';
+					
+					var retorno = server.obter(json);
+
 					if(!retorno){
 						/* debuando */
 						debug('controller.js - controller.registrar() - Dados retornado pelo server',retorno);
 						/* */
-						view.err('Falha ao registrar');
+						view.err('Falha ao solicitar');
+					}else{
+						return retorno;
 					}
-				}else{
-					view.err(dados);
 				}
 			break;
 		}
