@@ -2,7 +2,7 @@
   FUNÇÃO RESPONSÁVEL POR EXIBIR PÁGINAS E POPUPS AO USUARIO
   @filipe
 */
-function chamarPágina (pagina){
+function chamarPagina (pagina){
 	/*
 	  DE ALGUMA FORMA ESSA FUNÇÃO TEM QUE TROCAR A PÁGINA DO USUARIO
 	  @filipe
@@ -10,6 +10,7 @@ function chamarPágina (pagina){
 	/* debuando */
 	debug('view.pagina.js - chamarPagina()', pagina);
 	/* */
+	activate_page(pagina);
 }
 
 function exibirPopup (dados, tipo = 'alert'){
