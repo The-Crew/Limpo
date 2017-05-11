@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
-<!--
+    <!--
   * Please see the included README.md file for license terms and conditions.
   -->
-<head>
-    <title>Blank App Designer Cordova Web App Project Template</title>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 
-<!--
+    <head>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+        <meta charset="UTF-8">
+        <title>Blank App Designer Cordova Web App Project Template</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+        <!--
   * The "meta viewport" tag (below) helps your app size appropriately to a device's ideal viewport.
   * Note that Windows device viewports work better when initialized using the @viewport CSS rule.
   * For a quick overview of "meta viewport" and @viewport, see this article:
@@ -19,48 +22,150 @@
   *   https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
 -->
 
-    <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+        <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
 
-    <style>
-    /* following three (cascaded) are equivalent to above three meta viewport statements */
-    /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
-    /* see http://dev.w3.org/csswg/css-device-adapt/ */
-        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
-        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
-        /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
-    </style>
+        <style>
+            /* following three (cascaded) are equivalent to above three meta viewport statements */
+            /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
+            /* see http://dev.w3.org/csswg/css-device-adapt/ */
+                @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+                @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+                /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+        </style>
 
-    <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
 
-    <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
-    <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
-    <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
 
-    <!-- Recommended location for your JavaScript libraries -->
-    <!-- These library references (below) are just examples to give you the general idea... -->
-    <!-- <script src="lib/mc/hammer.js"></script> -->
-    <!-- <script src="lib/ft/fastclick.js"></script> -->
+        <!-- Recommended location for your JavaScript libraries -->
+        <!-- These library references (below) are just examples to give you the general idea... -->
+        <!-- <script src="lib/mc/hammer.js"></script> -->
+        <!-- <script src="lib/ft/fastclick.js"></script> -->
 
-<!--
+        <!--
   * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
   * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?
   * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
   * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
 -->
-    <script src="cordova.js" id="xdkJScordova_"></script>
 
-    <script src="js/app.js"></script>           <!-- for your event code, see README and file comments for details -->
-    <script src="js/init-app.js"></script>      <!-- for your init code, see README and file comments for details -->
-    <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see file for details -->
-</head>
+        <!-- Codigo da estrutura de Camadas -->
+        <script src="js/jquery-3.2.1.min.js">
+        </script>
+        <script src="js/controller.js">
+        </script>
+        <script src="js/controller.verificar.js">
+        </script>
+        <script src="js/model.imovel.js">
+        </script>
+        <script src="js/model.user.js">
+        </script>
+        <script src="js/server.js">
+        </script>
+        <script src="js/view.js">
+        </script>
+        <script src="js/view.err.js">
+        </script>
+        <script src="js/view.getsetdados.js">
+        </script>
+        <script src="js/view.pagina.js">
+        </script>
+        <!-- -->
 
+        <script src="js/app.js"></script>
+        <!-- for your event code, see README and file comments for details -->
+        <script src="js/init-app.js"></script>
+        <!-- for your init code, see README and file comments for details -->
+        <script src="xdk/init-dev.js"></script>
+        <!-- normalizes device and document ready events, see file for details -->
+        <!-- <script type="application/javascript" src="lib/jquery.min.js"></script> -->
+        <script type="application/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <script type="application/javascript" src="marginal/marginal-position.min.js"></script>
+        <script type="application/javascript" src="js/index_user_scripts.js"></script>
+        <script type="application/javascript" src="xdk/ad/bs_subpage.js"></script>
+        <script type="application/javascript" src="justgage/js/raphael.min.js"></script>
+        <script type="application/javascript" src="justgage/js/justgage.min.js"></script>
+        <script type="application/javascript" src="justgage/gauges.js"></script>
+    </head>
 
-<body>
+    <body>
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+        <div class="upage vertical-col left" id="mainpage">
 
-    <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
-    <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
-    <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
-</body>
+            <div class="widget uib_w_12 scale-image d-margins" data-uib="media/img" data-ver="0">
+                <figure class="figure-align">
+                    <img src="images/Limpô-01-01.png">
+                    <figcaption data-position="bottom"></figcaption>
+                </figure>
+            </div>
+        </div>
+        <div class="upage hidden" id="view-cadastro">
+            <div class="upage-outer">
+                <div class="uib-header header-bg container-group inner-element uib_w_5" data-uib="layout/header" data-ver="0" id="header-cadastro">
+                    <h2>Cadastro</h2>
+                    <div class="widget-container wrapping-col single-centered"></div>
+                    <div class="widget-container content-area horiz-area wrapping-col left">
+                        <button class="btn widget uib_w_10 d-margins btn-lg btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" id="Volta"><i class="glyphicon glyphicon-chevron-left" data-position="icon only"></i>
+                        </button>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col right"></div>
+                </div>
+                <div class="upage-content ac0 content-area vertical-col" id="page_60_48">
+                    <div class="table-thing widget uib_w_1 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control label-top-left" for="nome">Nome :</label>
+                        <input class="wide-control form-control default" type="text" id="nome" value="silvio">
+                    </div>
+                    <div class="table-thing widget uib_w_4 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control label-top-left" for="fone">Telefone</label>
+                        <input class="wide-control form-control default" type="tel" id="fone" value="(88) 8 8888-8888">
+                    </div>
+                    <div class="table-thing widget uib_w_3 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control label-top-left" for="cpf">CPF :</label>
+                        <input class="wide-control form-control default" type="number" id="cpf" value="11134788452">
+                    </div>
+                    <div class="table-thing widget uib_w_2 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control label-top-left" for="email">Email :</label>
+                        <input class="wide-control form-control default" type="email" id="email" value="crew@gmail.com">
+                    </div>
+                    <div class="table-thing widget uib_w_6 d-margins" data-uib="twitter%20bootstrap/select" data-ver="1">
+                        <label class="narrow-control label-top-left">Sexo</label>
+                        <select class="wide-control form-control default" id="sexo">
+                            <option value="M">Masculino</option>
+                            <option value="F">Feminino</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="uib-footer uib-footer-fixed footer-bg container-group inner-element uib_w_9" data-uib="layout/footer" data-ver="0" id="footerCadastro">
+                    <div class="widget-container wrapping-col single-centered">
+                        <button class="btn widget uib_w_8 d-margins btn-lg btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="Submit">Cadastrar</button>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col left"></div>
+                    <div class="widget-container content-area horiz-area wrapping-col right"></div>
+                </div>
+            </div>
+        </div>
+        <div class="upage vertical-col left hidden" id="login">
+            <button class="btn widget uib_w_11 d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btt-login">login</button>
+            <div class="card_grid widget uib_w_13 wrapping-col d-margins flex-basis-13" data-uib="layout/card_grid" data-ver="0">
+                <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_14" data-uib="layout/card" data-ver="0"></div>
+                <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_15" data-uib="layout/card" data-ver="0"></div>
+                <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_16" data-uib="layout/card" data-ver="0"></div>
+                <div class="widget widget-container content-area vertical-col uib-card cpad-0 uib_w_17" data-uib="layout/card" data-ver="0"></div>
+            </div>
+        </div>
+
+    </body>
+
 </html>
