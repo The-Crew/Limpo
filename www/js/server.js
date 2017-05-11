@@ -6,7 +6,7 @@
 
 var Server = function(){
     
-    var servidor = 'http://192.168.0.101:3131';
+    var servidor = 'http:localhost';
 
     this.enviar = function(dados, callback){
     	/* debuando */

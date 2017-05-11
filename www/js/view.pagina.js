@@ -9,6 +9,7 @@ function chamarPagina (pagina){
 	*/
 	/* debuando */
 	debug('view.pagina.js - chamarPagina()', pagina);
+    activate_page("#inicial");
 	/* */
 	activate_page(pagina);
 }

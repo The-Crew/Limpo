@@ -23,3 +23,11 @@
 
 
 // ...additional event handlers here...
+
+jQuery(function($) {
+	if(user.getId()){
+		view.pagina('#mainpage');
+	}else{
+		view.pagina('#login');
+	}
+});
