@@ -15,7 +15,7 @@ function chamarPagina (page){
 	uib_sb.close_all_sidebars();
 	switch(page){
 		case 'login':
-			activate_page('#login');
+			activate_page('#mainpage');
 		break;
 		case 'mapa':
 			activate_page('#mapa');
@@ -25,7 +25,7 @@ function chamarPagina (page){
 				var listaImoveis = '<div class="panel-group" id="listaImoveis">';
 				for(var i in imoveis){
 					var collapse = ' <div style="margin-bottom: 0px;" class="panel widget uib_w_32 panel-default" data-uib="twitter%20bootstrap/collapsible" data-ver="1"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#listaImoveis" href="#iidc'+imoveis[i].getId()+'" data-parent="#null"> <div class="panel-heading"> <h4 class="panel-title"> '+imoveis[i].getNome()+'</h4> </div> </a> <div id="iidc'+imoveis[i].getId()+'" class="panel-collapse collapse"> <div class="panel-body"> <div class="col uib_col_2 single-col" data-uib="layout/col" data-ver="0"> <div class="widget-container content-area vertical-col"> <div class="btn-group uib-bs-flex widget uib_w_33 d-margins" data-uib="twitter%20bootstrap/button_group" data-ver="1">';
-					var botoes = '<div class="btn-group uib-bs-flex widget uib_w_37 d-margins" data-uib="twitter%20bootstrap/button_group" data-ver="1"> <button class="btn widget uib_w_38 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" style="background: #baeaba;"><i class="fa fa-edit" data-position="icon only"></i> </button> <button class="btn widget uib_w_39 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" style="background: #ffd0cf;"><i class="glyphicon glyphicon-remove" data-position="icon only"></i> </button> <button class="btn widget uib_w_40 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" style="background: #bed2e4;"><i class="fa fa-check" data-position="icon only"></i> </button>';
+					var botoes = '<div class="btn-group uib-bs-flex widget uib_w_37 d-margins" data-uib="twitter%20bootstrap/button_group" data-ver="1"> <button id="'+imoveis[i].getId()+'" class="btn-edit-imovel btn widget uib_w_38 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" style="background: #baeaba;"><i class="fa fa-edit" data-position="icon only"></i> </button> <button id="'+imoveis[i].getId()+'" class="btn-del-imovel btn widget uib_w_39 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" style="background: #ffd0cf;"><i class="glyphicon glyphicon-remove" data-position="icon only"></i> </button> <button id="'+imoveis[i].getId()+'" class="btn-sol-imovel btn widget uib_w_40 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" style="background: #bed2e4;"><i class="fa fa-check" data-position="icon only"></i> </button>';
 					listaImoveis += collapse+botoes+'</div></div></div></div></div></div>';
 				}
 				listaImoveis += '</div>'
@@ -36,11 +36,23 @@ function chamarPagina (page){
 		case 'cadastro':
 			activate_page('#cadastro');
 		break;
-		case 'cadastImovel':
-			activate_page('#cadastImovel');
+		case 'new-imovel':
+			$("#inome").val('');
+			$("#iqtd-comodos").val('');
+			$("#iendereco").val('');
+
+			$('#btn-update-imovel').attr('style', 'visibility: hidden;');
+			$('#btn-new-imovel').attr('style', 'visibility: visible;');
+			activate_page('#regist-imoveis');
 		break;
-		case 'editImovel':
-			activate_page('#editImovel');
+		case 'edit-imovel':
+			$("#inome").val(imoveis[imovelASerEditado].getNome());
+			$("#iqtd-comodos").val(imoveis[imovelASerEditado].getQtdComodos());
+			$("#iendereco").val(imoveis[imovelASerEditado].getEndereco());
+
+			$('#btn-new-imovel').attr('style', 'margin-top: -34px;visibility: hidden');
+			$('#btn-update-imovel').attr('style', 'margin-top: -34px;visibility: visible;');
+			activate_page('#regist-imoveis');
 		break;
 		case 'config':
 			$('#anome').attr("value", user.getNome());

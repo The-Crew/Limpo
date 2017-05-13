@@ -6,7 +6,7 @@
 
 var Server = function(){
     
-    var servidor = 'http://ip.filipebotelho.com.br';
+    var servidor = 'http://ip.filipebotelho.com.br:3130';
 
     this.enviar = function(dados, callback){
     	/* debuando */
@@ -15,8 +15,8 @@ var Server = function(){
     	var retorno;
 
         jQuery.ajax({
-		type: 'GET',
-		async: false,
+		type: 'POST',
+		//async: false,
 		data: JSON.stringify(dados),
 		url: servidor,
 		success: function(data) {

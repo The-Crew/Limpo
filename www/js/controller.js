@@ -127,6 +127,7 @@ var Controller = function (){
 								NESSE CASO FOI NECESSÁRIO UM FOR PARA INSTANCIAR OS IMOVEIS
 								NO ARRAY DE IMOVEIS DO APP
 							*/
+							imoveis = [];
 							for(var i in retorno){
 								console.log('For 1 dos imoveis, i: '); console.log(i);
 								imoveis[i] = new Imovel();
@@ -134,6 +135,7 @@ var Controller = function (){
 								imoveis[i].setJson(retorno[i]);
 							}
 							console.log(imoveis);
+							view.pagina('imoveis');
 						}else{
 							/* debuando */
 							debug('controller.js - controller.registrar() - Dados retornado pelo server',retorno);
@@ -162,7 +164,29 @@ var Controller = function (){
 					json.action = 'remover';
 					json.tipo = 'imovel';
 					server.enviar(json, function(retorno){
-						console.log(retorno);
+						retorno = JSON.parse(retorno);
+						if(retorno){
+							/*	AO REMOVER UM IMOVEL É RETORNADO UM NOVO
+								ARRAY DE IMOVEIS E O MESMO PRECISA SER NOVAMENTE INSTANCIADO
+								NO ARRAY DE IMOVEIS DO APP
+								NESSE CASO FOI NECESSÁRIO UM FOR PARA INSTANCIAR OS IMOVEIS
+								NO ARRAY DE IMOVEIS DO APP
+							*/
+							imoveis = [];
+							for(var i in retorno){
+								console.log('For 1 dos imoveis, i: '); console.log(i);
+								imoveis[i] = new Imovel();
+								//UMA FORMA PRATICA DE SETAR OS DADOS NO OBJETO
+								imoveis[i].setJson(retorno[i]);
+							}
+							console.log(imoveis);
+							view.pagina('imoveis');
+						}else{
+							/* debuando */
+							debug('controller.js - controller.registrar() - Dados retornado pelo server',retorno);
+							/* */
+							view.err('Falha ao registrar');
+						}
 					});
 				}
 			break;

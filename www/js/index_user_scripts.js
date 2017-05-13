@@ -129,11 +129,11 @@
          return false;
     });
     
-        /* button  #btnConfig */
-    $(document).on("click", "#btnConfig", function(evt)
+        /* button  #btn-config */
+    $(document).on("click", "#btn-config", function(evt)
     {
          /*global activate_page */
-         view.pagina('config'); 
+         view.enviarDados('user', 'atualizar');
          //uib_sb.close_all_sidebars(); 
          return false;
     });
@@ -258,7 +258,9 @@
     $(document).on("click", "#btnLogin", function(evt)
     {
          /*global activate_page */
-         activate_page("#mapa"); 
+         user.setId('a11');
+         view.enviarDados('login');
+         //activate_page("#mapa"); 
          return false;
     });
     
@@ -311,9 +313,9 @@
             case 'cadastro':
                 view.pagina('login');
             break;
-            case 'cadastImovel':
+            case 'new-imovel':
             break;
-            case 'editImovel':
+            case 'edit-imovel':
             break;
             case 'config':
                 view.pagina('mapa');
@@ -321,16 +323,8 @@
         }
     }, false);
     
-    /* button  #btn-sair */
-    $(document).on("click", "#btn-sair", function(evt)
-    {
-        /* your code goes here */ 
-        navigator.app.exitApp();
-         return false;
-    });
-    
-        /* button  #btn-sair2 */
-    $(document).on("click", "#btn-sair2", function(evt)
+    /* button  .btn-sair */
+    $(document).on("click", ".btn-sair", function(evt)
     {
         /* your code goes here */ 
         navigator.app.exitApp();
@@ -352,7 +346,52 @@
         navigator.app.exitApp();
          return false;
     });
-    
+
+    $(document).on("click", "#btn-cadastro", function(evt)
+    {
+        /* your code goes here */ 
+        view.enviarDados('user', 'registrar');
+         return false;
+    });
+
+    $(document).on("click", ".btn-edit-imovel", function(evt)
+    {
+        /* your code goes here */ 
+         imovelASerEditado = this.id;
+         view.pagina('edit-imovel');
+         return false;
+    });
+    $(document).on("click", ".btn-del-imovel", function(evt)
+    {
+        /* your code goes here */ 
+         imovelASerDeletado = this.id;
+         view.enviarDados('remover', 'imovel');
+         return false;
+    });
+    $(document).on("click", ".btn-sol-imovel", function(evt)
+    {
+        /* your code goes here */ 
+         
+         return false;
+    });
+    $(document).on("click", "#btn-new-imovel", function(evt)
+    {
+        /* your code goes here */ 
+         view.enviarDados('imovel','registrar');
+         return false;
+    });
+    $(document).on("click", "#btn-update-imovel", function(evt)
+    {
+        /* your code goes here */ 
+        view.enviarDados('imovel','atualizar');
+         return false;
+    });
+    $(document).on("click", "#btn-novo-imovel", function(evt)
+    {
+        /* your code goes here */ 
+        view.pagina('new-imovel');
+         return false;
+    });
 }
 
 document.addEventListener("app.Ready", register_event_handlers, false);

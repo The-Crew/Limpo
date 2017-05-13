@@ -130,3 +130,5 @@ function Imovel()
 }
 
 imoveis = [];
+imovelASerEditado = '';
+imovelASerDeletado = '';

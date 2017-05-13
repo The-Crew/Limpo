@@ -52,15 +52,15 @@ var enviarDados = function(tipo, dados=null){
                 novoImovel.setNome($("#inome").val());
                 novoImovel.setQtdComodos($("#iqtdcomodos").val());
                 novoImovel.setEndereco($("#iendereco").val());
+                novoImovel.setLat('36.55555');
+                novoImovel.setLng($("1.88888").val());
+            }else if(dados == 'atualizar'){
+                novoImovel.setId(imovelASerEditado);
+                novoImovel.setNome($("#inome").val());
+                novoImovel.setQtdComodos($("#iqtdcomodos").val());
+                novoImovel.setEndereco($("#iendereco").val());
                 novoImovel.setLat($("#ilat").val());
                 novoImovel.setLng($("#ilng").val());
-            }else if(dados == 'atualizar'){
-                novoImovel.setId($("#aiid").val());
-                novoImovel.setNome($("#ainome").val());
-                novoImovel.setQtdComodos($("#aiqtdcomodos").val());
-                novoImovel.setEndereco($("#aiendereco").val());
-                novoImovel.setLat($("#ailat").val());
-                novoImovel.setLng($("#ailng").val());
             }
             json = {};
             json.dados = novoImovel;
@@ -70,10 +70,10 @@ var enviarDados = function(tipo, dados=null){
 
         case 'remover':
             if(dados == 'user'){
-                json = {tipo:'user', idUser:$("#id").val()}
+                json = {tipo:'user', idUser:user.getId()};
                 controller.registrar(json, 'remover');
             }else if(dados == 'imovel'){
-                json = {tipo:'imovel', idImovel:$("#idi").val()};
+                json = {tipo:'imovel', idImovel:imovelASerDeletado};
                 controller.registrar(json, 'remover');
             }
         break;
