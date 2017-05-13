@@ -8,55 +8,353 @@
  function register_event_handlers()
  {
     
-    
-     /* button  login */
-    
-    
-        /* button  #Volta */
-    
-    
-        /* button  #Submit */
-    $(document).on("click", "#Submit", function(evt)
+    if(user.getId() == undefined){
+        //view.pagina('login');
+    }
+
+        /* button  #btnImoveis */
+    $(document).on("click", "#btnImoveis", function(evt)
     {
-        /* your code goes here */ 
-       view.enviarDados("user");
+         /*global activate_subpage */
+         view.pagina('imoveis');
+         //uib_sb.close_all_sidebars(); 
         return false;
     });
     
-        /* button  login */
-    
-    
-        /* button  login */
-    
-    
-        /* button  login */
-    
-    
-        /* button  #Volta */
-    
-    
-        /* button  #Volta */
-    
-    
-        /* button  #btt-login */
-    
-    
-        /* button  #btt-login */
-    $(document).on("click", "#btt-login", function(evt)
+        /* button  #btnMapa2 */
+    $(document).on("click", "#btnMapa2", function(evt)
     {
-         /*global activate_page */
-         activate_page("#view-cadastro"); 
+         /*global activate_subpage */
+         view.pagina('mapa');
+         //uib_sb.close_all_sidebars(); 
          return false;
     });
     
-        /* button  #Volta */
-    $(document).on("click", "#Volta", function(evt)
+        /* button  #btn-menu */
+    $(document).on("click", "#btn-menu", function(evt)
     {
-         /*global activate_page */
-         activate_page("#login"); 
+         /*global uib_sb */
+         /* Other possible functions are: 
+           uib_sb.open_sidebar($sb)
+           uib_sb.close_sidebar($sb)
+           uib_sb.toggle_sidebar($sb)
+            uib_sb.close_all_sidebars()
+          See js/sidebar.js for the full sidebar API */
+        
+         uib_sb.toggle_sidebar($("#menu1"));  
          return false;
     });
     
-    }
- document.addEventListener("app.Ready", register_event_handlers, false);
+        /* button  #btn-menu2 */
+    $(document).on("click", "#btn-menu2", function(evt)
+    {
+         /*global uib_sb */
+         /* Other possible functions are: 
+           uib_sb.open_sidebar($sb)
+           uib_sb.close_sidebar($sb)
+           uib_sb.toggle_sidebar($sb)
+            uib_sb.close_all_sidebars()
+          See js/sidebar.js for the full sidebar API */
+        
+         uib_sb.toggle_sidebar($("#menu2"));  
+         return false;
+    });
+    
+        /* button  #btn-menu-mapa */
+    $(document).on("click", "#btn-menu-mapa", function(evt)
+    {
+         /*global activate_page */
+         view.pagina('mapa');
+         //uib_sb.close_all_sidebars(); 
+         return false;
+    });
+    
+        /* button  #btn-menu-imoveis */
+    $(document).on("click", "#btn-menu-imoveis", function(evt)
+    {
+         /*global activate_page */
+         view.pagina('imoveis');
+         //uib_sb.close_all_sidebars(); 
+         return false;
+    });
+    
+        /* button  #btn-menu-mapa2 */
+    $(document).on("click", "#btn-menu-mapa2", function(evt)
+    {
+         /*global activate_page */
+         view.pagina('mapa');
+         //uib_sb.close_all_sidebars(); 
+         return false;
+    });
+    
+        /* button  #btn-menu-imoveis2 */
+    $(document).on("click", "#btn-menu-imoveis2", function(evt)
+    {
+         /*global activate_page */
+         view.pagina('imoveis');
+         //uib_sb.close_all_sidebars(); 
+         return false;
+    });
+    
+        /* button  #btn-menu-config2 */
+    $(document).on("click", "#btn-menu-config2", function(evt)
+    {
+         /*global activate_page */
+         view.pagina('config'); 
+         //uib_sb.close_all_sidebars(); 
+         return false;
+    });
+    
+        /* button  #btn-menu-config */
+    $(document).on("click", "#btn-menu-config", function(evt)
+    {
+         /*global activate_page */
+         view.pagina('config'); 
+         //uib_sb.close_all_sidebars(); 
+         return false;
+    });
+    
+        /* button  #btn-menu3 */
+    $(document).on("click", "#btn-menu3", function(evt)
+    {
+         /*global uib_sb */
+         /* Other possible functions are: 
+           uib_sb.open_sidebar($sb)
+           uib_sb.close_sidebar($sb)
+           uib_sb.toggle_sidebar($sb)
+            uib_sb.close_all_sidebars()
+          See js/sidebar.js for the full sidebar API */
+        
+         uib_sb.toggle_sidebar($("#menu3"));  
+         return false;
+    });
+    
+        /* button  #btnConfig */
+    $(document).on("click", "#btnConfig", function(evt)
+    {
+         /*global activate_page */
+         view.pagina('config'); 
+         //uib_sb.close_all_sidebars(); 
+         return false;
+    });
+    
+        /* button  #btn-menu-mapa3 */
+    $(document).on("click", "#btn-menu-mapa3", function(evt)
+    {
+         /*global uib_sb */
+         /* Other possible functions are: 
+           uib_sb.open_sidebar($sb)
+           uib_sb.close_sidebar($sb)
+           uib_sb.toggle_sidebar($sb)
+            uib_sb.close_all_sidebars()
+          See js/sidebar.js for the full sidebar API */
+        
+         view.pagina('mapa'); 
+         //uib_sb.close_all_sidebars(); 
+         return false;
+    });
+    
+        /* button  #btn-menu-imoveis3 */
+    $(document).on("click", "#btn-menu-imoveis3", function(evt)
+    {
+         /*global activate_page */
+         view.pagina('imoveis'); 
+         //uib_sb.close_all_sidebars(); 
+         return false;
+    });
+    
+        /* button  #btn-menu-config3 */
+    $(document).on("click", "#btn-menu-config3", function(evt)
+    {
+         /*global activate_page */
+         view.pagina('config'); 
+         //uib_sb.close_all_sidebars();
+         return false;
+    });
+    
+        /* button  #btn-menu4 */
+    $(document).on("click", "#btn-menu4", function(evt)
+    {
+         /*global uib_sb */
+         /* Other possible functions are: 
+           uib_sb.open_sidebar($sb)
+           uib_sb.close_sidebar($sb)
+           uib_sb.toggle_sidebar($sb)
+            uib_sb.close_all_sidebars()
+          See js/sidebar.js for the full sidebar API */
+        
+         uib_sb.toggle_sidebar($("#menu4"));  
+         return false;
+    });
+    
+        /* button  #btnRegistImovel */
+    
+    
+        /* button  #btn-menu-mapa4 */
+    $(document).on("click", "#btn-menu-mapa4", function(evt)
+    {
+         /*global activate_page */
+         view.pagina('mapa'); 
+         //uib_sb.close_all_sidebars(); 
+         return false;
+    });
+    
+        /* button  #btn-menu-imoveis4 */
+    $(document).on("click", "#btn-menu-imoveis4", function(evt)
+    {
+         /*global activate_page */
+         view.pagina('imoveis'); 
+         //uib_sb.close_all_sidebars(); 
+         return false;
+    });
+    
+        /* button  #btn-menu-config4 */
+    $(document).on("click", "#btn-menu-config4", function(evt)
+    {
+         /*global activate_page */
+         view.pagina('config'); 
+         //uib_sb.close_all_sidebars(); 
+         return false;
+    });
+    
+        /* button  #btnRegistImovel */
+    $(document).on("click", "#btnRegistImovel", function(evt)
+    {
+         /*global activate_page */
+         //FUNÇÃO DE REGISTRAR O IMOVEL
+         //uib_sb.close_all_sidebars(); 
+         return false;
+    });
+    
+        /* button  #btn-mapa */
+    $(document).on("click", "#btn-mapa", function(evt)
+    {
+         /*global activate_page */
+         view.pagina('mapa'); 
+         //uib_sb.close_all_sidebars(); 
+         return false;
+    });
+    
+        /* button  Imóveis */
+    $(document).on("click", ".uib_w_24", function(evt)
+    {
+         /*global activate_page */
+         view.pagina('imoveis'); 
+         //uib_sb.close_all_sidebars(); 
+         return false;
+    });
+    
+        /* button  #btn-imoveis */
+    $(document).on("click", "#btn-imoveis", function(evt)
+    {
+         /*global activate_page */
+         view.pagina('imoveis'); 
+         //uib_sb.close_all_sidebars(); 
+         return false;
+    });
+    
+    
+        /* button  #btnLogin */
+    $(document).on("click", "#btnLogin", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#mapa"); 
+         return false;
+    });
+    
+        /* button  #btn-menu-sair */
+    $(document).on("click", "#btn-menu-sair", function(evt)
+    {
+        /* your code goes here */ 
+        navigator.app.exitApp();
+         return false;
+    });
+    
+        /* button  #btn-menu-sair2 */
+    $(document).on("click", "#btn-menu-sair2", function(evt)
+    {
+        /* your code goes here */ 
+        navigator.app.exitApp();
+         return false;
+    });
+    
+        /* button  #btn-menu-sair3 */
+    $(document).on("click", "#btn-menu-sair3", function(evt)
+    {
+        /* your code goes here */ 
+        navigator.app.exitApp();
+         return false;
+    });
+    
+        /* button  #btn-menu-sair4 */
+    $(document).on("click", "#btn-menu-sair4", function(evt)
+    {
+        /* your code goes here */ 
+        navigator.app.exitApp();
+         return false;
+    });
+     
+    /*  CONTROLAR BOTÃO DE VOLTAR DO ANDROID */
+    document.addEventListener("backbutton", function(e){
+        //alert(e);
+        //e.preventDefault();
+        uib_sb.close_all_sidebars();
+        
+        switch(paginaAtual){
+            case 'login':
+                navigator.app.exitApp();
+            break;
+            case 'mapa':
+            break;
+            case 'imoveis':
+            break;
+            case 'cadastro':
+                view.pagina('login');
+            break;
+            case 'cadastImovel':
+            break;
+            case 'editImovel':
+            break;
+            case 'config':
+                view.pagina('mapa');
+            break;
+        }
+    }, false);
+    
+    /* button  #btn-sair */
+    $(document).on("click", "#btn-sair", function(evt)
+    {
+        /* your code goes here */ 
+        navigator.app.exitApp();
+         return false;
+    });
+    
+        /* button  #btn-sair2 */
+    $(document).on("click", "#btn-sair2", function(evt)
+    {
+        /* your code goes here */ 
+        navigator.app.exitApp();
+         return false;
+    });
+    
+    /* button  #btn-sair3 */
+    $(document).on("click", "#btn-sair3", function(evt)
+    {
+        /* your code goes here */ 
+        navigator.app.exitApp();
+         return false;
+    });
+    
+        /* button  #btn-sair4 */
+    $(document).on("click", "#btn-sair4", function(evt)
+    {
+        /* your code goes here */ 
+        navigator.app.exitApp();
+         return false;
+    });
+    
+}
+
+document.addEventListener("app.Ready", register_event_handlers, false);
+
 })();

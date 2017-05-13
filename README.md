@@ -1,7 +1,7 @@
 Blank HTML App Designer Template for Building Mobile Cordova Web Apps
 =====================================================================
 
-Copyright © 2012-2015, Intel Corporation. All rights reserved.
+Copyright © 2012-2017, Intel Corporation. All rights reserved.
 
 See [LICENSE.md](<LICENSE.md>) for license terms and conditions.
 

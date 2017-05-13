@@ -11,13 +11,21 @@ var enviarDados = function(tipo, dados=null){
             /* debuando */
             debug('view.getsetdados.js - enviarDados()', tipo, dados);
             /* */
-
-            user.setId($("#id").val());
-            user.setNome($("#nome").val());
-            user.setCpf($("#cpf").val());
-            user.setSexo($("#sexo").val());
-            user.setEmail($("#email").val());
-            user.setFone($("#fone").val());
+            if(dados == 'registrar'){
+                //user.setId($("#id").val());
+                user.setNome($("#nome").val());
+                user.setCpf($("#cpf").val());
+                user.setSexo($("#sexo").val());
+                user.setEmail($("#email").val());
+                user.setFone($("#fone").val());
+            }else if('atualizar'){
+                //user.setId($("#aid").val());
+                user.setNome($("#anome").val());
+                user.setCpf($("#acpf").val());
+                user.setSexo($("#asexo").val());
+                user.setEmail($("#aemail").val());
+                user.setFone($("#afone").val());
+            }
             json = {};
             json.dados = user;
             json.action = dados == 'atualizar' ? 'atualizar' : 'registrar';
@@ -30,9 +38,7 @@ var enviarDados = function(tipo, dados=null){
           Pode ser alterado conforme a implementação do projeto.
           Favor informar caso seja teste.
         */
-            user.setId($("#idl").val());
-            dados = user.getId();
-            login(dados);
+            login(user.getId());
         break;
 
         case 'imovel':
@@ -42,13 +48,20 @@ var enviarDados = function(tipo, dados=null){
 
             var novoImovel = new Imovel;
 
-            user.setId($("#id").val());
-            novoImovel.setId($("#idi").val());
-            novoImovel.setNome($("#nomei").val());
-            novoImovel.setQtdComodos($("#qtdcomodos").val());
-            novoImovel.setEndereco($("#endereco").val());
-            novoImovel.setLat($("#lat").val());
-            novoImovel.setLng($("#lng").val());
+            if(dados == 'registrar'){
+                novoImovel.setNome($("#inome").val());
+                novoImovel.setQtdComodos($("#iqtdcomodos").val());
+                novoImovel.setEndereco($("#iendereco").val());
+                novoImovel.setLat($("#ilat").val());
+                novoImovel.setLng($("#ilng").val());
+            }else if(dados == 'atualizar'){
+                novoImovel.setId($("#aiid").val());
+                novoImovel.setNome($("#ainome").val());
+                novoImovel.setQtdComodos($("#aiqtdcomodos").val());
+                novoImovel.setEndereco($("#aiendereco").val());
+                novoImovel.setLat($("#ailat").val());
+                novoImovel.setLng($("#ailng").val());
+            }
             json = {};
             json.dados = novoImovel;
             json.action = dados == 'atualizar' ? 'atualizar' : 'registrar';

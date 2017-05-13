@@ -93,7 +93,7 @@ var Controller = function (){
 							user.setJson(retorno);
 							if(json.action == 'registrar'){
 								//abrir pagina inicial
-								view.pagina('#inicial');
+								view.pagina('mapa');
 							}else{
 								//ficar na pagina
 							}
@@ -179,31 +179,36 @@ var Controller = function (){
 					OS DADOS SERÃO RETORNADOS COM TODAS INFORMAÇÕES DO USUARIO
 					@filipe
 				*/
-				server.obter(dados, function(retorno){
-					if(retorno){
-						// CONVERTER EM OBJETO
-						retorno = JSON.parse(retorno);
-						//UMA FORMA PRATICA DE SETAR OS DADOS NO OBJETO
-						user.setJson(retorno);
-
-						/*	IRÁ RETORNAR JUNTO COM OS DADOS O ARRAY DE IMOVEIS
-							NESSE CASO FOI NECESSÁRIO UM FOR PARA INSTANCIAR OS IMOVEIS
-							NO ARRAY DE IMOVEIS DO APP
-						*/
-						for(var i in retorno.imoveis){
-							console.log('For 1 dos imoveis, i: '); console.log(i);
-							imoveis[i] = new Imovel();
+				if(dados.action == 'login'){
+					server.obter(dados, function(retorno){
+						if(retorno != 'false'){
+							// CONVERTER EM OBJETO
+							retorno = JSON.parse(retorno);
 							//UMA FORMA PRATICA DE SETAR OS DADOS NO OBJETO
-							imoveis[i].setJson(retorno.imoveis[i]);
+							user.setJson(retorno);
+
+							/*	IRÁ RETORNAR JUNTO COM OS DADOS O ARRAY DE IMOVEIS
+								NESSE CASO FOI NECESSÁRIO UM FOR PARA INSTANCIAR OS IMOVEIS
+								NO ARRAY DE IMOVEIS DO APP
+							*/
+							imoveis = [];
+							for(var i in retorno.imoveis){
+								console.log('For 1 dos imoveis, i: '); console.log(i);
+								imoveis[i] = new Imovel();
+								//UMA FORMA PRATICA DE SETAR OS DADOS NO OBJETO
+								imoveis[i].setJson(retorno.imoveis[i]);
+							}
+							console.log(imoveis);
+							$("#nomeUser").html("Bem vindo "+user.getNome()+"!");
+							view.pagina('mapa');
+						}else{
+							/* debuando */
+							debug('controller.js - controller.solicitar() - Dados retornado pelo server',retorno);
+							/* */
+							view.pagina('cadastro');
 						}
-						console.log(imoveis);
-					}else{
-						/* debuando */
-						debug('controller.js - controller.solicitar() - Dados retornado pelo server',retorno);
-						/* */
-						view.err('Falha ao registrar');
-					}
-				});
+					});
+				}
 			break;
 			case 'imovel':
 				if(dados == 'array'){
