@@ -34,11 +34,14 @@ var enviarDados = function(tipo, dados=null){
         break;
             
         case 'login':
+        /* debuando */
+            debug('view.getsetdados.js - enviarDados()', tipo, dados);
+            /* */
         /*Esses códigos foram apenas para teste. 
           Pode ser alterado conforme a implementação do projeto.
           Favor informar caso seja teste.
         */
-            login(user.getId());
+            controller.solicitar({action:'login', idUser:dados},'user');
         break;
 
         case 'imovel':

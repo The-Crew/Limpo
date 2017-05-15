@@ -137,6 +137,13 @@
          //uib_sb.close_all_sidebars(); 
          return false;
     });
+    $(document).on("click", "#btn-del-conta", function(evt)
+    {
+         /*global activate_page */
+         view.enviarDados('remover', 'user');
+         //uib_sb.close_all_sidebars(); 
+         return false;
+    });
     
         /* button  #btn-menu-mapa3 */
     $(document).on("click", "#btn-menu-mapa3", function(evt)
@@ -258,9 +265,16 @@
     $(document).on("click", "#btnLogin", function(evt)
     {
          /*global activate_page */
-         user.setId('a11');
-         view.enviarDados('login');
+         /*user.setId('a11');
+         view.enviarDados('login');*/
          //activate_page("#mapa"); 
+
+        facebookConnectPlugin.login(["public_profile"], function (success){
+            alert('ID: '+success.authResponse['userID']);
+            view.enviarDados('login', success.authResponse.userID);
+        }, function (failure){
+            alert('failure'+JSON.stringify(failure));
+        });
          return false;
     });
     
@@ -301,14 +315,38 @@
         //alert(e);
         //e.preventDefault();
         uib_sb.close_all_sidebars();
+        BootstrapDialog.closeAll();
+        if(ajax == "pending"){
+            abortEnvio();
+        }
+
+        function sairDoApp(){
+            BootstrapDialog.show({
+                title: '<h3>Tem certeza que deseja sair?</h3>',
+                buttons: [{
+                    icon: 'glyphicon glyphicon-ban-circle',
+                    label: '  Sair',
+                    cssClass: 'btn-danger',
+                    action: ()=>{navigator.app.exitApp();}
+                }, 
+                {
+                    label: 'Cancelar',
+                    action: function(dialogItself){
+                        dialogItself.close();
+                    }
+                }]
+            });
+        }
         
         switch(paginaAtual){
             case 'login':
-                navigator.app.exitApp();
+                sairDoApp();
             break;
             case 'mapa':
+                sairDoApp();
             break;
             case 'imoveis':
+                sairDoApp();
             break;
             case 'cadastro':
                 view.pagina('login');
@@ -319,6 +357,9 @@
             break;
             case 'config':
                 view.pagina('mapa');
+            break;
+            default:
+                sairDoApp();
             break;
         }
     }, false);
@@ -391,6 +432,12 @@
         /* your code goes here */ 
         view.pagina('new-imovel');
          return false;
+    });
+
+    facebookConnectPlugin.getLoginStatus(function(success){
+        view.enviarDados('login', success.authResponse.userID);
+    }, function(){
+        view.pagina('login');
     });
 }
 

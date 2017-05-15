@@ -67,15 +67,48 @@ function chamarPagina (page){
 	
 }
 
-function exibirPopup (dados, tipo = 'alert'){
+function exibirPopup (dados, tipo = 'alert', callback){
 	/*
 	  DE ALGUMA FORMA ESSA FUNÇÃO TEM QUE EXIBIR UM POPUP AO USUARIO
 	  @filipe
 	*/
 	/* debuando */
-	debug('view.pagina.js - exibirPopup()', dados, tipo);
+	debug('view.pagina.js - exibirPopup()', dados, tipo, callback);
 	/* */
 	if(tipo == 'alert'){
-		alert(dados);
+		dados.fixo = dados.fixo == true ? false : true;
+		var dialog = new BootstrapDialog({
+            title: dados.titlo,
+            message: dados.texto,
+            closable: dados.fixo
+        });
+        dialog.realize();
+        if(typeof(dados.titlo) == "undefined"){
+        	dialog.setTitle('');
+        	dialog.getModalHeader().css('background-color', '#337ab7');
+        	dialog.getModalHeader().css('heigth', '5px');
+        }
+        if(dados.cor == 'vermelho'){
+	        dialog.getModalHeader().css('background-color', 'rgb(228, 87, 44)');
+	    }
+        dialog.open();
+	}else if(tipo == 'confirm'){
+		BootstrapDialog.show({
+            title: dados.titlo,
+            message: dados.texto,
+            buttons: [{
+                icon: 'glyphicon glyphicon-ban-circle',
+                label: '  Confirmar',
+                cssClass: 'btn-danger',
+                action: ()=>{callback.call(null,true); dialogItself.close();}
+            }, 
+            {
+                label: 'Cancelar',
+                action: function(dialogItself){
+                    callback.call(false);
+                    dialogItself.close();
+                }
+            }]
+        });
 	}
 }

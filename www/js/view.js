@@ -33,8 +33,11 @@ var View = function(){
 		chamarPagina(pagina);
 	}
 
-	this.popup = function (dados, tipo){
-		exibirPopup(dados, tipo);
+	this.popup = function (dados, tipo, callback){
+		/* debuando */
+		debug('view.js - view.popup()',dados, tipo, callback);
+		/* */
+		exibirPopup(dados, tipo, callback);
 	}
 
 }

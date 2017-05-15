@@ -57,7 +57,6 @@
   * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
 -->
         <script src="cordova.js" id="xdkJScordova_"></script>
-
         <script src="js/app.js"></script>
         <!-- for your event code, see README and file comments for details -->
         <script src="js/init-app.js"></script>
@@ -71,6 +70,7 @@
         <script type="application/javascript" src="xdk/ad/bs_subpage.js"></script>
 
         <!--    SCRITPS DAGENTE    -->
+        <script type="application/javascript" src="js/server.js"></script>
         <script type="application/javascript" src="js/model.user.js"></script>
         <script type="application/javascript" src="js/model.imovel.js"></script>
         <script type="application/javascript" src="js/controller.verificar.js"></script>
@@ -79,8 +79,11 @@
         <script type="application/javascript" src="js/view.getsetdados.js"></script>
         <script type="application/javascript" src="js/view.pagina.js"></script>
         <script type="application/javascript" src="js/view.js"></script>
-        <script type="application/javascript" src="js/server.js"></script>
         <!--    FIM SCRITPS DAGENTE    -->
+        <!-- Boot Strap Dialog -->
+        <style type="text/css" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css"></style>
+        <script type="text/javascript" src="lib/bootstrap-dialog.js"></script>
+        <!-- Fim Boot Strap Dialog -->
         <script type="application/javascript" src="sidebar/js/hammer.js"></script>
         <script type="application/javascript" src="sidebar/js/jquery.hammer.js"></script>
         <script type="application/javascript" src="sidebar/js/swipe-hammer.js"></script>
@@ -92,7 +95,10 @@
         <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
         <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
         <div class="upage vertical-col left bg" id="mainpage">
-            <button id="btnLogin" class="row align-items-center btn widget uib_w_13 d-margins position btn-danger" data-uib="twitter%20bootstrap/button" style="top: 50%; margin-top: -17px; width: 200px; left: 50%; margin-left: -100px;" data-ver="1"><i class="fa fa-google-plus button-icon-left" data-position="left"></i>Entrar com o Google</button>
+        <br><br><br><br>
+            <button id="btnLogin" class="row align-items-center btn widget uib_w_13 d-margins position btn-primary" data-uib="twitter%20bootstrap/button" style="top:50%; width: 200px; left: 50%; margin-left: -100px;" data-ver="1"><i class="fa fa-facebook-f button-icon-left" data-position="left"></i>Entrar com o Facebook</button>
+            <div class="fb-like" data-share="true" data-width="450" data-show-faces="true">
+            </div>
         </div>
         <div class="upage hidden bg" id="imoveis">
             <div class="upage-outer">
@@ -180,7 +186,7 @@
 
                     </div>
                     <div class="widget-container content-area horiz-area wrapping-col right">
-                         <button class="btn-sair btn widget uib_w_22 btn-lg btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" id="" style="margin:-5px -5px 0px 0px; color:#fff"> <i class="fa fa-sign-out button-icon-right" data-position="right"></i>
+                        <button class="btn-sair btn widget uib_w_22 btn-lg btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" style="margin:-5px -5px 0px 0px; color:#fff"> <i class="fa fa-sign-out button-icon-right" data-position="right"></i>
                         </button>
                     </div>
                 </div>
@@ -224,7 +230,7 @@
                         </button>
                     </div>
                     <div class="widget-container content-area horiz-area wrapping-col right">
-                        <button class="btn-sair btn widget uib_w_22 btn-lg btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" id="" style="margin:-5px -5px 0px 0px; color:#fff"> <i class="fa fa-sign-out button-icon-right" data-position="right"></i>
+                        <button class="btn-sair btn widget uib_w_22 btn-lg btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" style="margin:-5px -5px 0px 0px; color:#fff"> <i class="fa fa-sign-out button-icon-right" data-position="right"></i>
                         </button>
                     </div>
                 </div>
@@ -254,6 +260,8 @@
                     </div>
                     <br>
                     <button class="btn widget uib_w_27 d-margins btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-config">Salvar</button>
+                    <br><br>
+                    <button class="btn widget uib_w_27 d-margins btn-danger" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-del-conta">Excluir conta</button>
                 </div>
                 <div class="inner-element uib_w_25 uib_sidebar leftbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/left_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'left', 'dur':200}" id="menu3">
                     <div class="sidebar-content content-area vertical-col">
@@ -276,7 +284,7 @@
                         </button>
                     </div>
                     <div class="widget-container content-area horiz-area wrapping-col right">
-                        <button class="btn-sair btn widget uib_w_22 btn-lg btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" id="" style="margin:-5px -5px 0px 0px; color:#fff"> <i class="fa fa-sign-out button-icon-right" data-position="right"></i>
+                        <button class="btn-sair btn widget uib_w_22 btn-lg btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" style="margin:-5px -5px 0px 0px; color:#fff"> <i class="fa fa-sign-out button-icon-right" data-position="right"></i>
                         </button>
                     </div>
                 </div>

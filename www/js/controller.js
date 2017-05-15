@@ -150,13 +150,21 @@ var Controller = function (){
 			break;
 			case 'remover':
 				if(dados.tipo == 'user'){
-					var json = {};
-					json.idUser = dados.idUser;
-					json.action = 'remover';
-					json.tipo = 'user';
-					server.enviar(json, function(retorno){
-						console.log(retorno);
-					});
+					var popup = {};
+					popup.titlo = '<h3>Tem certeza que deseja remover sua conta?</h3>';
+					popup.texto = 'Essa operação não terá mais retorno';
+					view.popup(popup, 'confirm', function(retorno){
+						if(retorno){
+							var json = {};
+							json.idUser = dados.idUser;
+							json.action = 'remover';
+							json.tipo = 'user';
+							server.enviar(json, function(retorno){
+								console.log(retorno);
+							});
+						}else{}
+					})
+					
 				}else if(dados.tipo == 'imovel'){
 					var json = {};
 					json.idUser = user.getId();
@@ -204,6 +212,7 @@ var Controller = function (){
 					@filipe
 				*/
 				if(dados.action == 'login'){
+					user.setId(dados.idUser);
 					server.obter(dados, function(retorno){
 						if(retorno != 'false'){
 							// CONVERTER EM OBJETO

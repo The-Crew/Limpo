@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-ad-project/sample.zip",
       "projectGuid": "5e019e0b-7596-4842-93d6-7b142394c477",
-      "lastModifiedDate": 1494655184719,
+      "lastModifiedDate": 1494828011344,
       "creationDate": 1494498078500
     },
     "XDK-app-designer": "true",
@@ -77,6 +77,28 @@
         "checksum": "47137083",
         "gitref": "",
         "description": "Cordova Splashscreen Plugin"
+      },
+      {
+        "id": "cordova-plugin-facebook4",
+        "name": "Facebook Connect",
+        "version": "1.7.4",
+        "originType": "local",
+        "origin": "/home/filipe/Intel XDK/cordova-plugin-facebook4-master",
+        "gitref": "",
+        "paramvals": {
+          "APP_ID": "1771495909829161",
+          "APP_NAME": "LoginLimpô"
+        },
+        "sourceLocation": "plugins/cordova-plugin-facebook4",
+        "selectedState": "Included",
+        "checksum": "76d31203",
+        "dependsOn": [],
+        "topLevel": true,
+        "permissions": {},
+        "description": "\n      This is the official plugin for Facebook in Apache Cordova/PhoneGap!\n\n      The Facebook plugin for Apache Cordova allows you to use the same JavaScript code in your\n      Cordova application as you use in your web application.\n    ",
+        "data": {},
+        "dependedBy": [],
+        "custom": "true"
       }
     ],
     "buildConfigurations": {
@@ -85,7 +107,7 @@
         "runtime_": "Crosswalk with Cordova 3.x",
         "name_": "Android",
         "preferences_": {
-          "android-minSdkVersion": "14",
+          "android-minSdkVersion": "16",
           "android-targetSdkVersion": "21",
           "android-installLocation": "auto",
           "Fullscreen": false,
@@ -217,7 +239,12 @@
             "itms:*",
             "itms-apps:*"
           ],
-          "navigation": []
+          "navigation": [
+            "*",
+            "http://*",
+            "http://ip.filipebotelho.com.br"
+          ],
+          "properties": {}
         },
         "icons_": [],
         "splashes_": [],
