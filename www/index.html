@@ -95,7 +95,10 @@
         <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
         <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
         <div class="upage vertical-col left bg" id="mainpage">
-        <br><br><br><br>
+            <br>
+            <br>
+            <br>
+            <br>
             <button id="btnLogin" class="row align-items-center btn widget uib_w_13 d-margins position btn-primary" data-uib="twitter%20bootstrap/button" style="top:50%; width: 200px; left: 50%; margin-left: -100px;" data-ver="1"><i class="fa fa-facebook-f button-icon-left" data-position="left"></i>Entrar com o Facebook</button>
             <div class="fb-like" data-share="true" data-width="450" data-show-faces="true">
             </div>
@@ -105,15 +108,14 @@
                 <div class="uib-header header-bg container-group inner-element uib_w_20" data-uib="layout/header" data-ver="0">
                     <h2></h2>
                     <div class="widget-container content-area horiz-area wrapping-col left">
-                        <button class="btn widget uib_w_22 btn-lg btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu2" style="margin:-5px 0px 0px -5px; color:#fff"><i class="fa fa-navicon button-icon-left" data-position="left"></i> 
-                        </button>
+                        
                     </div>
 
                     <div class="widget-container wrapping-col single-centered">
                         <div class="btn-group uib-bs-flex widget uib_w_21 d-margins" data-uib="twitter%20bootstrap/button_group" data-ver="1">
 
                             <button class="btn widget uib_w_32 d-margins btn-link" data-uib="twitter%20bootstrap/button" data-ver="1"></button>
-                            <button class="btn widget uib_w_23 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-mapa">Mapa</button>
+                            <button class="btn-mapa btn widget uib_w_23 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-mapa">Mapa</button>
                             <button class="btn widget uib_w_24 btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1">Imóveis</button>
                             <button class="btn widget uib_w_32 d-margins btn-link" data-uib="twitter%20bootstrap/button" data-ver="1"></button>
 
@@ -121,7 +123,7 @@
                     </div>
 
                     <div class="widget-container content-area horiz-area wrapping-col right">
-                        <button class="btn-sair btn widget uib_w_22 btn-lg btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-sair2" style="margin:-5px -5px 0px 0px; color:#fff"> <i class="fa fa-sign-out button-icon-right" data-position="right"></i>
+                        <button class="btn widget uib_w_22 btn-lg btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu2" style="margin:-5px -5px 0px 0px; color:#fff"><i class="fa fa-navicon button-icon-left" data-position="left"></i> 
                         </button>
                     </div>
                 </div>
@@ -129,13 +131,12 @@
                     <button class="btn widget uib_w_28 d-margins btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" style="margin: 5px;" id="btn-novo-imovel">Inserir</button>
                     <div id="imoveisContent"></div>
                 </div>
-                <div class="inner-element uib_w_25 uib_sidebar leftbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/left_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'left', 'dur':200}" id="menu2">
+                <div class="inner-element uib_w_33 uib_sidebar rightbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/right_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'right', 'dur':200}" id="menu2">
                     <div class="sidebar-content content-area vertical-col">
-
-                        <button class="btn widget uib_w_26 d-margins cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-mapa2">Mapa</button>
-                        <button class="btn widget uib_w_27 cor-btn-menu d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-imoveis2">Imóveis</button>
-                        <button class="btn widget uib_w_28 d-margins cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config2">Configurações</button>
-                        <button class="btn widget uib_w_29 d-margins cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair2">Sair</button>
+                        <button class="btn-mapa btn widget uib_w_26 d-margins cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-mapa2">Mapa</button>
+                        <button class="btn-imoveis btn widget uib_w_27 cor-btn-menu d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1">Imóveis</button>
+                        <button class="btn-config btn widget uib_w_28 d-margins cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config2">Configurações</button>
+                        <button class="btn-sair btn widget uib_w_29 d-margins cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair2">Sair</button>
                     </div>
                 </div>
             </div>
@@ -145,34 +146,34 @@
                 <div class="uib-header header-bg container-group inner-element uib_w_14 uib-header-fixed" data-uib="layout/header" data-ver="0">
                     <h2></h2>
                     <div class="widget-container content-area horiz-area wrapping-col left">
-                        <button class="btn widget uib_w_22 btn-lg btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu" style="margin:-5px 0px 0px -5px; color:#fff"><i class="fa fa-navicon button-icon-left button-icon-left" data-position="left"></i> 
-                        </button>
+                        
                     </div>
 
                     <div class="widget-container wrapping-col single-centered">
                         <div class="btn-group uib-bs-flex widget uib_w_21 d-margins" data-uib="twitter%20bootstrap/button_group" data-ver="1">
 
                             <button class="btn widget uib_w_32 d-margins btn-link" data-uib="twitter%20bootstrap/button" data-ver="1"></button>
-                            <button class="btn widget uib_w_23 btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1">Mapa</button>
-                            <button class="btn widget uib_w_24 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-imoveis">Imóveis</button>
+                            <button class="btn-mapa btn widget uib_w_23 btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1">Mapa</button>
+                            <button class="btn-imoveis btn widget uib_w_24 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" >Imóveis</button>
                             <button class="btn widget uib_w_32 d-margins btn-link" data-uib="twitter%20bootstrap/button" data-ver="1"></button>
 
                         </div>
                     </div>
 
                     <div class="widget-container content-area horiz-area wrapping-col right">
-                        <button class="btn-sair btn widget uib_w_22 btn-lg btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-sair" style="margin:-5px -5px 0px 0px; color:#fff"> <i class="fa fa-sign-out button-icon-right" data-position="right"></i>
+                        <button class="btn widget uib_w_22 btn-lg btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu" style="margin:-5px -5px 0px 0px; color:#fff"><i class="fa fa-navicon button-icon-left button-icon-left" data-position="left"></i> 
                         </button>
                     </div>
                 </div>
-                <div class="upage-content ac0 content-area vertical-col left" id="page_14_72"></div>
-                <div class="inner-element uib_w_25 uib_sidebar leftbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/left_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'left', 'dur':200}" id="menu1">
+                <div class="upage-content ac0 content-area vertical-col left" id="page_14_72">
+                    <img src="images/mapa.png">
+                </div>
+                <div class="inner-element uib_w_34 uib_sidebar rightbar bar-bg thumb-bg bar-gutter" data-uib="layout/right_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'right', 'dur':200, 'io':true}" id="menu1">
                     <div class="sidebar-content content-area vertical-col">
-
-                        <button class="btn widget uib_w_26 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-mapa">Mapa</button>
-                        <button class="btn widget uib_w_27 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-imoveis">Imóveis</button>
-                        <button class="btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config">Configurações</button>
-                        <button class="btn widget uib_w_29 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair">Sair</button>
+                        <button class="btn-mapa btn widget uib_w_26 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-mapa">Mapa</button>
+                        <button class="btn-imoveis btn widget uib_w_27 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1">Imóveis</button>
+                        <button class="btn-config btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config">Configurações</button>
+                        <button class="btn-sair btn widget uib_w_29 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair">Sair</button>
                     </div>
                 </div>
             </div>
@@ -224,13 +225,15 @@
             <div class="upage-outer">
                 <div class="uib-header header-bg container-group inner-element uib_w_30" data-uib="layout/header" data-ver="0">
                     <h2></h2>
-                    <div class="widget-container wrapping-col single-centered"></div>
+                    <div class="widget-container wrapping-col single-centered">
+                        <img src="images/logoHead.png">
+                    </div>
                     <div class="widget-container content-area horiz-area wrapping-col left">
-                        <button class="btn widget uib_w_22 btn-lg btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu3" style="margin:-5px 0px 0px -5px; color:#fff"><i class="fa fa-navicon button-icon-left" data-position="right"></i>
+                        <button class="voltar btn widget uib_w_31 btn-lg d-margins btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" style="margin:-5px -5px 0px 0px; color:#fff"><i class="fa fa-chevron-left button-icon-left" data-position="left"></i>
                         </button>
                     </div>
                     <div class="widget-container content-area horiz-area wrapping-col right">
-                        <button class="btn-sair btn widget uib_w_22 btn-lg btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" style="margin:-5px -5px 0px 0px; color:#fff"> <i class="fa fa-sign-out button-icon-right" data-position="right"></i>
+                        <button class="btn widget uib_w_22 btn-lg btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu3" style="margin:-5px -5px 0px 0px; color:#fff"><i class="fa fa-navicon button-icon-left" data-position="right"></i>
                         </button>
                     </div>
                 </div>
@@ -259,32 +262,34 @@
                         </select>
                     </div>
                     <br>
-                    <button class="btn widget uib_w_27 d-margins btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-config">Salvar</button>
-                    <br><br>
+                    <button class="btn widget uib_w_27 d-margins btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-save-config">Salvar</button>
+                    <br>
+                    <br>
                     <button class="btn widget uib_w_27 d-margins btn-danger" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-del-conta">Excluir conta</button>
                 </div>
-                <div class="inner-element uib_w_25 uib_sidebar leftbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/left_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'left', 'dur':200}" id="menu3">
+                <div class="inner-element uib_w_35 uib_sidebar rightbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/right_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'right', 'dur':200}" id="menu3">
                     <div class="sidebar-content content-area vertical-col">
-
-                        <button class="btn widget uib_w_26 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-mapa3">Mapa</button>
-                        <button class="btn widget uib_w_27 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-imoveis3">Imóveis</button>
-                        <button class="btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config3">Configurações</button>
-                        <button class="btn widget uib_w_29 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair3">Sair</button>
+                        <button class="btn-mapa btn widget uib_w_26 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-mapa3">Mapa</button>
+                        <button class="btn-imoveis btn widget uib_w_27 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" >Imóveis</button>
+                        <button class="btn-config btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config3">Configurações</button>
+                        <button class="btn-sair btn widget uib_w_29 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair3">Sair</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="upage hidden bg" id="regist-imoveis">
             <div class="upage-outer">
-                <div class="uib-header header-bg container-group inner-element uib_w_30" data-uib="layout/header" data-ver="0">
+                <div class="voltar uib-header header-bg container-group inner-element uib_w_30" data-uib="layout/header" data-ver="0">
                     <h2></h2>
-                    <div class="widget-container wrapping-col single-centered"></div>
+                    <div class="widget-container wrapping-col single-centered">
+                        <img src="images/logoHead.png">
+                    </div>
                     <div class="widget-container content-area horiz-area wrapping-col left">
-                        <button class="btn widget uib_w_31 btn-lg d-margins btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu4" style="margin:-5px 0px 0px -5px; color:#fff"><i class="fa fa-navicon button-icon-left" data-position="right"></i>
+                        <button class="btn widget uib_w_31 btn-lg d-margins btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" style="margin:-5px -5px 0px 0px; color:#fff"><i class="fa fa-chevron-left button-icon-left" data-position="left"></i>
                         </button>
                     </div>
                     <div class="widget-container content-area horiz-area wrapping-col right">
-                        <button class="btn-sair btn widget uib_w_22 btn-lg btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" style="margin:-5px -5px 0px 0px; color:#fff"> <i class="fa fa-sign-out button-icon-right" data-position="right"></i>
+                        <button class="btn widget uib_w_31 btn-lg d-margins btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu4" style="margin:-5px -5px 0px 0px; color:#fff"><i class="fa fa-navicon button-icon-left" data-position="right"></i>
                         </button>
                     </div>
                 </div>
@@ -308,13 +313,12 @@
                     <button class="btn widget uib_w_28 d-margins btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" style="" id="btn-new-imovel">Inserir</button>
                     <button class="btn widget uib_w_28 d-margins btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" style="" id="btn-update-imovel">Salvar</button>
                 </div>
-                <div class="inner-element uib_w_25 uib_sidebar leftbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/left_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'left', 'dur':200}" id="menu4">
+                <div class="inner-element uib_w_36 uib_sidebar rightbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/right_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'right', 'dur':200}" id="menu4">
                     <div class="sidebar-content content-area vertical-col">
-
-                        <button class="btn widget uib_w_26 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-mapa4">Mapa</button>
-                        <button class="btn widget uib_w_27 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-imoveis4">Imóveis</button>
-                        <button class="btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config4">Configurações</button>
-                        <button class="btn widget uib_w_29 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair4">Sair</button>
+                        <button class="btn-mapa btn widget uib_w_26 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-mapa4">Mapa</button>
+                        <button class="btn widget uib_w_27 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1">Imóveis</button>
+                        <button class="btn-config btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config4">Configurações</button>
+                        <button class="btn-sair btn widget uib_w_29 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair4">Sair</button>
                     </div>
                 </div>
             </div>

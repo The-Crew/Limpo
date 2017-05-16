@@ -53,17 +53,17 @@ var enviarDados = function(tipo, dados=null){
 
             if(dados == 'registrar'){
                 novoImovel.setNome($("#inome").val());
-                novoImovel.setQtdComodos($("#iqtdcomodos").val());
+                novoImovel.setQtdComodos($("#iqtd-comodos").val());
                 novoImovel.setEndereco($("#iendereco").val());
                 novoImovel.setLat('36.55555');
-                novoImovel.setLng($("1.88888").val());
+                novoImovel.setLng('1.88888');
             }else if(dados == 'atualizar'){
                 novoImovel.setId(imovelASerEditado);
                 novoImovel.setNome($("#inome").val());
-                novoImovel.setQtdComodos($("#iqtdcomodos").val());
+                novoImovel.setQtdComodos($("#iqtd-comodos").val());
                 novoImovel.setEndereco($("#iendereco").val());
-                novoImovel.setLat($("#ilat").val());
-                novoImovel.setLng($("#ilng").val());
+                novoImovel.setLat(imoveis[imovelASerEditado].getLat());
+                novoImovel.setLng(imoveis[imovelASerEditado].getLng());
             }
             json = {};
             json.dados = novoImovel;

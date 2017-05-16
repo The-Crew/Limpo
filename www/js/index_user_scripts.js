@@ -11,9 +11,16 @@
     if(user.getId() == undefined){
         //view.pagina('login');
     }
-
+    $(document).on("click", ".voltar", function(evt)
+    {
+         /*global activate_subpage */
+         //window.history.back();
+         view.pagina('mapa');
+         uib_sb.close_all_sidebars(); 
+        return false;
+    });
         /* button  #btnImoveis */
-    $(document).on("click", "#btnImoveis", function(evt)
+    $(document).on("click", ".btn-imoveis", function(evt)
     {
          /*global activate_subpage */
          view.pagina('imoveis');
@@ -22,7 +29,7 @@
     });
     
         /* button  #btnMapa2 */
-    $(document).on("click", "#btnMapa2", function(evt)
+    $(document).on("click", ".btn-mapa", function(evt)
     {
          /*global activate_subpage */
          view.pagina('mapa');
@@ -60,53 +67,8 @@
          return false;
     });
     
-        /* button  #btn-menu-mapa */
-    $(document).on("click", "#btn-menu-mapa", function(evt)
-    {
-         /*global activate_page */
-         view.pagina('mapa');
-         //uib_sb.close_all_sidebars(); 
-         return false;
-    });
-    
-        /* button  #btn-menu-imoveis */
-    $(document).on("click", "#btn-menu-imoveis", function(evt)
-    {
-         /*global activate_page */
-         view.pagina('imoveis');
-         //uib_sb.close_all_sidebars(); 
-         return false;
-    });
-    
-        /* button  #btn-menu-mapa2 */
-    $(document).on("click", "#btn-menu-mapa2", function(evt)
-    {
-         /*global activate_page */
-         view.pagina('mapa');
-         //uib_sb.close_all_sidebars(); 
-         return false;
-    });
-    
-        /* button  #btn-menu-imoveis2 */
-    $(document).on("click", "#btn-menu-imoveis2", function(evt)
-    {
-         /*global activate_page */
-         view.pagina('imoveis');
-         //uib_sb.close_all_sidebars(); 
-         return false;
-    });
-    
-        /* button  #btn-menu-config2 */
-    $(document).on("click", "#btn-menu-config2", function(evt)
-    {
-         /*global activate_page */
-         view.pagina('config'); 
-         //uib_sb.close_all_sidebars(); 
-         return false;
-    });
-    
-        /* button  #btn-menu-config */
-    $(document).on("click", "#btn-menu-config", function(evt)
+        /* button  .btn-config */
+    $(document).on("click", ".btn-config", function(evt)
     {
          /*global activate_page */
          view.pagina('config'); 
@@ -129,8 +91,8 @@
          return false;
     });
     
-        /* button  #btn-config */
-    $(document).on("click", "#btn-config", function(evt)
+        /* button  #btn-save-config */
+    $(document).on("click", "#btn-save-config", function(evt)
     {
          /*global activate_page */
          view.enviarDados('user', 'atualizar');
@@ -142,40 +104,6 @@
          /*global activate_page */
          view.enviarDados('remover', 'user');
          //uib_sb.close_all_sidebars(); 
-         return false;
-    });
-    
-        /* button  #btn-menu-mapa3 */
-    $(document).on("click", "#btn-menu-mapa3", function(evt)
-    {
-         /*global uib_sb */
-         /* Other possible functions are: 
-           uib_sb.open_sidebar($sb)
-           uib_sb.close_sidebar($sb)
-           uib_sb.toggle_sidebar($sb)
-            uib_sb.close_all_sidebars()
-          See js/sidebar.js for the full sidebar API */
-        
-         view.pagina('mapa'); 
-         //uib_sb.close_all_sidebars(); 
-         return false;
-    });
-    
-        /* button  #btn-menu-imoveis3 */
-    $(document).on("click", "#btn-menu-imoveis3", function(evt)
-    {
-         /*global activate_page */
-         view.pagina('imoveis'); 
-         //uib_sb.close_all_sidebars(); 
-         return false;
-    });
-    
-        /* button  #btn-menu-config3 */
-    $(document).on("click", "#btn-menu-config3", function(evt)
-    {
-         /*global activate_page */
-         view.pagina('config'); 
-         //uib_sb.close_all_sidebars();
          return false;
     });
     
@@ -195,36 +123,6 @@
     });
     
         /* button  #btnRegistImovel */
-    
-    
-        /* button  #btn-menu-mapa4 */
-    $(document).on("click", "#btn-menu-mapa4", function(evt)
-    {
-         /*global activate_page */
-         view.pagina('mapa'); 
-         //uib_sb.close_all_sidebars(); 
-         return false;
-    });
-    
-        /* button  #btn-menu-imoveis4 */
-    $(document).on("click", "#btn-menu-imoveis4", function(evt)
-    {
-         /*global activate_page */
-         view.pagina('imoveis'); 
-         //uib_sb.close_all_sidebars(); 
-         return false;
-    });
-    
-        /* button  #btn-menu-config4 */
-    $(document).on("click", "#btn-menu-config4", function(evt)
-    {
-         /*global activate_page */
-         view.pagina('config'); 
-         //uib_sb.close_all_sidebars(); 
-         return false;
-    });
-    
-        /* button  #btnRegistImovel */
     $(document).on("click", "#btnRegistImovel", function(evt)
     {
          /*global activate_page */
@@ -232,35 +130,7 @@
          //uib_sb.close_all_sidebars(); 
          return false;
     });
-    
-        /* button  #btn-mapa */
-    $(document).on("click", "#btn-mapa", function(evt)
-    {
-         /*global activate_page */
-         view.pagina('mapa'); 
-         //uib_sb.close_all_sidebars(); 
-         return false;
-    });
-    
-        /* button  Imóveis */
-    $(document).on("click", ".uib_w_24", function(evt)
-    {
-         /*global activate_page */
-         view.pagina('imoveis'); 
-         //uib_sb.close_all_sidebars(); 
-         return false;
-    });
-    
-        /* button  #btn-imoveis */
-    $(document).on("click", "#btn-imoveis", function(evt)
-    {
-         /*global activate_page */
-         view.pagina('imoveis'); 
-         //uib_sb.close_all_sidebars(); 
-         return false;
-    });
-    
-    
+
         /* button  #btnLogin */
     $(document).on("click", "#btnLogin", function(evt)
     {
@@ -278,38 +148,6 @@
          return false;
     });
     
-        /* button  #btn-menu-sair */
-    $(document).on("click", "#btn-menu-sair", function(evt)
-    {
-        /* your code goes here */ 
-        navigator.app.exitApp();
-         return false;
-    });
-    
-        /* button  #btn-menu-sair2 */
-    $(document).on("click", "#btn-menu-sair2", function(evt)
-    {
-        /* your code goes here */ 
-        navigator.app.exitApp();
-         return false;
-    });
-    
-        /* button  #btn-menu-sair3 */
-    $(document).on("click", "#btn-menu-sair3", function(evt)
-    {
-        /* your code goes here */ 
-        navigator.app.exitApp();
-         return false;
-    });
-    
-        /* button  #btn-menu-sair4 */
-    $(document).on("click", "#btn-menu-sair4", function(evt)
-    {
-        /* your code goes here */ 
-        navigator.app.exitApp();
-         return false;
-    });
-     
     /*  CONTROLAR BOTÃO DE VOLTAR DO ANDROID */
     document.addEventListener("backbutton", function(e){
         //alert(e);
@@ -352,8 +190,10 @@
                 view.pagina('login');
             break;
             case 'new-imovel':
+                view.pagina('imoveis');
             break;
             case 'edit-imovel':
+                view.pagina('imoveis');
             break;
             case 'config':
                 view.pagina('mapa');
@@ -366,22 +206,6 @@
     
     /* button  .btn-sair */
     $(document).on("click", ".btn-sair", function(evt)
-    {
-        /* your code goes here */ 
-        navigator.app.exitApp();
-         return false;
-    });
-    
-    /* button  #btn-sair3 */
-    $(document).on("click", "#btn-sair3", function(evt)
-    {
-        /* your code goes here */ 
-        navigator.app.exitApp();
-         return false;
-    });
-    
-        /* button  #btn-sair4 */
-    $(document).on("click", "#btn-sair4", function(evt)
     {
         /* your code goes here */ 
         navigator.app.exitApp();

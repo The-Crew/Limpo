@@ -97,10 +97,18 @@ function verificar(dados){
                 dados.setStatus(false);
                 dados.setSexo(false);
             }
+            if(dados.getNome() == ""){
+                dados.setStatus(false);
+                dados.setNome(false);
+            }
             /*
                 FINALIZANDO VALIDAÇÃO DOS CAMPOS VAZIOS DO USUÁRIO
                 @filipe
             */
+            if(dados.getNome() && dados.getEmail() && dados.getCpf() && dados.getFone() && dados.getSexo()){
+                view.err('remover');
+                dados.setStatus(true);
+            }
         break;
         case 'imovel':
             /*
@@ -119,27 +127,29 @@ function verificar(dados){
                 dados.setStatus(false);
                 dados.setLng(false);
             }
-            /*
-                FINALIZANDO VALIDAÇÃO DOS CAMPOS VAZIOS DO IMÓVEL
-                @filipe
-            */
-        break;
-
-    }
-            /*
-                INICIANDO VALIDAÇÃO DOS CAMPOS VAZIOS DE AMBOS
-                @filipe
-            */
             if(dados.getNome() == ""){
                 dados.setStatus(false);
                 dados.setNome(false);
             }
+            if(dados.getEndereco() == ""){
+                dados.setStatus(false);
+                dados.setEndereco(false);
+            }
             /*
-                FINALIZANDO VALIDAÇÃO DOS CAMPOS VAZIOS DE AMBOS
+                FINALIZANDO VALIDAÇÃO DOS CAMPOS VAZIOS DO IMÓVEL
                 @filipe
             */
-            
-            
-            return dados;
+            if(dados.getQtdComodos() && dados.getLat() && dados.getLng() && dados.getNome()){
+                view.err('remover');
+                dados.setStatus(true);
+            }else{
+                if(!dados.getNome() || !dados.getEndereco() || !dados.getQtdComodos()){
+                    view.popup({titulo:'Campo inválido', texto:'Corrija o(s) campo(s) inválido(s) e tente novamente.'})
+                }
+            }
+        break;
+
+    }
+    return dados;
 
 };
