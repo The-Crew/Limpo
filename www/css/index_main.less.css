@@ -315,6 +315,10 @@ body#afui .splt {
     margin-left: 3px;
     margin-right: 4px;
   }
+  .d-margins {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
 .align-widget {
   margin: 5px 0 !important;
@@ -460,9 +464,7 @@ label:empty {
 }
 @media all {
   .header-bg {
-    /*background-color: #666666;*/
-    background-color: rgba(102, 102, 102, 0.25);
-    border-bottom: solid 1px #989898;
+    background-color: #666666;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;

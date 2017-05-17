@@ -94,21 +94,25 @@
         <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
         <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
         <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
-        <div class="upage vertical-col left bg" id="mainpage">
-            <br>
-            <br>
-            <br>
-            <br>
-            <button id="btnLogin" class="row align-items-center btn widget uib_w_13 d-margins position btn-primary" data-uib="twitter%20bootstrap/button" style="top:50%; width: 200px; left: 50%; margin-left: -100px;" data-ver="1"><i class="fa fa-facebook-f button-icon-left" data-position="left"></i>Entrar com o Facebook</button>
+        <div class="upage vertical-col left bg" id="mainpage" style="background-image: url(images/login-page-02-02.png); background-size:cover; ">
+
             <div class="fb-like" data-share="true" data-width="450" data-show-faces="true">
             </div>
+            <div class="widget uib_w_37 scale-image d-margins" data-uib="media/img" data-ver="0">
+                <figure class="figure-align">
+                    <img src="images/logo-01.png">
+
+                    <figcaption data-position="bottom"></figcaption>
+                </figure>
+            </div>
+            <button id="btnLogin" class="row align-items-center btn widget uib_w_13 d-margins position btn-primary" data-uib="twitter%20bootstrap/button" style="top:50%; width: 200px; left: 50%; margin-left: -100px;" data-ver="1"><i class="fa fa-facebook-f button-icon-left" data-position="left"></i>Entrar com o Facebook</button>
         </div>
         <div class="upage hidden bg" id="imoveis">
             <div class="upage-outer">
                 <div class="uib-header header-bg container-group inner-element uib_w_20" data-uib="layout/header" data-ver="0">
                     <h2></h2>
                     <div class="widget-container content-area horiz-area wrapping-col left">
-                        
+
                     </div>
 
                     <div class="widget-container wrapping-col single-centered">
@@ -128,15 +132,21 @@
                     </div>
                 </div>
                 <div class="upage-content ac0 content-area vertical-col left" id="page_13_7">
-                    <button class="btn widget uib_w_28 d-margins btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" style="margin: 5px;" id="btn-novo-imovel">Inserir</button>
+                    <button class="btn widget uib_w_28 d-margins btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" style="margin: 5px;" id="btn-novo-imovel"><i class="glyphicon glyphicon-edit button-icon-left" data-position="left"></i>Inserir</button>
                     <div id="imoveisContent"></div>
                 </div>
                 <div class="inner-element uib_w_33 uib_sidebar rightbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/right_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'right', 'dur':200}" id="menu2">
                     <div class="sidebar-content content-area vertical-col">
                         <button class="btn-mapa btn widget uib_w_26 d-margins cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-mapa2">Mapa</button>
                         <button class="btn-imoveis btn widget uib_w_27 cor-btn-menu d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1">Imóveis</button>
-                        <button class="btn-config btn widget uib_w_28 d-margins cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config2">Configurações</button>
+                        <button class="btn-config btn widget uib_w_28 d-margins cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config2">Perfil</button>
                         <button class="btn-sair btn widget uib_w_29 d-margins cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair2">Sair</button>
+                        <div class="widget uib_w_38 scale-image d-margins" data-uib="media/img" data-ver="0">
+                            <figure class="figure-align">
+                                <img src="images/vasoura-01.png">
+                                <figcaption data-position="bottom"></figcaption>
+                            </figure>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -146,7 +156,7 @@
                 <div class="uib-header header-bg container-group inner-element uib_w_14 uib-header-fixed" data-uib="layout/header" data-ver="0">
                     <h2></h2>
                     <div class="widget-container content-area horiz-area wrapping-col left">
-                        
+
                     </div>
 
                     <div class="widget-container wrapping-col single-centered">
@@ -154,7 +164,7 @@
 
                             <button class="btn widget uib_w_32 d-margins btn-link" data-uib="twitter%20bootstrap/button" data-ver="1"></button>
                             <button class="btn-mapa btn widget uib_w_23 btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1">Mapa</button>
-                            <button class="btn-imoveis btn widget uib_w_24 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" >Imóveis</button>
+                            <button class="btn-imoveis btn widget uib_w_24 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1">Imóveis</button>
                             <button class="btn widget uib_w_32 d-margins btn-link" data-uib="twitter%20bootstrap/button" data-ver="1"></button>
 
                         </div>
@@ -168,12 +178,18 @@
                 <div class="upage-content ac0 content-area vertical-col left" id="page_14_72">
                     <img src="images/mapa.png">
                 </div>
-                <div class="inner-element uib_w_34 uib_sidebar rightbar bar-bg thumb-bg bar-gutter" data-uib="layout/right_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'right', 'dur':200, 'io':true}" id="menu1">
+                <div class="inner-element uib_w_34 uib_sidebar rightbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/right_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'right', 'dur':200}" id="menu1">
                     <div class="sidebar-content content-area vertical-col">
                         <button class="btn-mapa btn widget uib_w_26 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-mapa">Mapa</button>
                         <button class="btn-imoveis btn widget uib_w_27 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1">Imóveis</button>
-                        <button class="btn-config btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config">Configurações</button>
+                        <button class="btn-config btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config">Perfil</button>
                         <button class="btn-sair btn widget uib_w_29 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair">Sair</button>
+                        <div class="widget uib_w_39 scale-image d-margins" data-uib="media/img" data-ver="0">
+                            <figure class="figure-align">
+                                <img src="images/vasoura-01.png">
+                                <figcaption data-position="bottom"></figcaption>
+                            </figure>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -194,30 +210,47 @@
                 <div class="upage-content ac0 content-area vertical-col left" id="page_72_53">
 
                     <div class="table-thing widget uib_w_1 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
-                        <label class="narrow-control label-top-left" for="nome">Nome :</label>
-                        <input class="wide-control form-control default" type="text" id="nome" value="silvio" placeholder="José Severino">
+                        <div class="input-group">
+                            <label class="narrow-control label-inline" for="nome" style="width:75px;">Nome :</label>
+                            <input class="wide-control form-control default" type="text" id="nome" value="silvio" placeholder="José Severino">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        </div>
                     </div>
+
                     <div class="table-thing widget uib_w_4 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
-                        <label class="narrow-control label-top-left" for="fone">Telefone</label>
-                        <input class="wide-control form-control default" type="tel" id="fone" value="81912345678" placeholder="81912345678">
+                        <div class="input-group">
+                            <label class="narrow-control label-inline" for="fone" style="width:75px;">Telefone:</label>
+                            <input class="wide-control form-control default" type="tel" id="fone" value="81912345678" placeholder="81912345678">
+                            <span class="input-group-addon "><i class="glyphicon glyphicon-earphone"></i></span>
+                        </div>
                     </div>
+
                     <div class="table-thing widget uib_w_3 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
-                        <label class="narrow-control label-top-left" for="cpf">CPF :</label>
-                        <input class="wide-control form-control default" type="number" id="cpf" value="11134788452" placeholder="12345678912">
+                        <div class="input-group">
+                            <label class="narrow-control label-inline" for="cpf" style="width:75px;">CPF :</label>
+                            <input class="wide-control form-control default" type="number" id="cpf" value="11134788452" placeholder="12345678912">
+                            <span class="input-group-addon "><i class="glyphicon glyphicon-credit-card"></i></span>
+                        </div>
                     </div>
+
                     <div class="table-thing widget uib_w_2 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
-                        <label class="narrow-control label-top-left" for="email">Email :</label>
-                        <input class="wide-control form-control default" type="email" id="email" value="crew@gmail.com">
+                        <div class="input-group ">
+                            <label class="narrow-control label-inline" for="email" style="width:75px;">Email :</label>
+                            <input class="wide-control form-control default" type="email" id="email" value="crew@gmail.com">
+                            <span class="input-group-addon "><i class="glyphicon glyphicon-envelope"></i></span>
+                        </div>
                     </div>
+
                     <div class="table-thing widget uib_w_6 d-margins" data-uib="twitter%20bootstrap/select" data-ver="1">
-                        <label class="narrow-control label-top-left">Sexo</label>
+                        <label class="narrow-control label-inline" style="width:75px;">Sexo</label>
                         <select class="wide-control form-control default" id="sexo">
                             <option>Masculino</option>
                             <option>Feminino</option>
                         </select>
+                        <span class="input-group-addon "><i class="glyphicon glyphicon-globe"></i></span>
                     </div>
                     <br>
-                    <button class="btn widget uib_w_26 d-margins btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-cadastro">Registrar</button>
+                    <button class="btn widget uib_w_26 btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-cadastro">Registrar</button>
                 </div>
             </div>
         </div>
@@ -238,41 +271,65 @@
                     </div>
                 </div>
                 <div class="upage-content ac0 content-area vertical-col left" id="page_72_53">
-                    <div class="table-thing widget uib_w_1 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
-                        <label class="narrow-control label-top-left" for="anome">Nome :</label>
+
+                    <div class="table-thing widget uib_w_1 d-margins label-padrao" data-uib="twitter%20bootstrap/input" data-ver="1">
+
+                        <label class="narrow-control label-inline" for="anome" style="width:75px;">Nome :</label>
                         <input class="wide-control form-control default" type="text" id="anome">
+                        <span class="input-group-addon "><i class="glyphicon glyphicon-user"></i></span>
+
                     </div>
+
                     <div class="table-thing widget uib_w_4 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
-                        <label class="narrow-control label-top-left" for="afone">Telefone</label>
+
+                        <label class="narrow-control label-inline" for="afone" style="width:75px;">Telefone</label>
                         <input class="wide-control form-control default" type="tel" id="afone">
+                        <span class="input-group-addon "><i class="glyphicon glyphicon-earphone"></i></span>
+
                     </div>
+
                     <div class="table-thing widget uib_w_3 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
-                        <label class="narrow-control label-top-left" for="acpf">CPF :</label>
+
+                        <label class="narrow-control label-inline" for="acpf" style="width:75px;">CPF :</label>
                         <input class="wide-control form-control default" type="number" id="acpf">
+                        <span class="input-group-addon "><i class="glyphicon glyphicon-credit-card"></i></span>
+
                     </div>
+
                     <div class="table-thing widget uib_w_2 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
-                        <label class="narrow-control label-top-left" for="aemail">Email :</label>
+
+                        <label class="narrow-control label-inline" for="aemail" style="width:75px;">Email :</label>
                         <input class="wide-control form-control default" type="email" id="aemail">
+                        <span class="input-group-addon "><i class="glyphicon glyphicon-envelope"></i></span>
+
                     </div>
+
                     <div class="table-thing widget uib_w_6 d-margins" data-uib="twitter%20bootstrap/select" data-ver="1">
-                        <label class="narrow-control label-top-left">Sexo</label>
+                        <label class="narrow-control label-inline" style="width:75px;">Sexo</label>
                         <select class="wide-control form-control default" id="asexo">
                             <option value="M">Masculino</option>
                             <option value="F">Feminino</option>
                         </select>
+                        <span class="input-group-addon "><i class="glyphicon glyphicon-globe"></i></span>
                     </div>
                     <br>
-                    <button class="btn widget uib_w_27 d-margins btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-save-config">Salvar</button>
+                    <button class="btn widget uib_w_27 btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-save-config">Salvar</button>
                     <br>
                     <br>
-                    <button class="btn widget uib_w_27 d-margins btn-danger" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-del-conta">Excluir conta</button>
+                    <button class="btn widget uib_w_27 btn-danger" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-del-conta">Excluir conta</button>
                 </div>
                 <div class="inner-element uib_w_35 uib_sidebar rightbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/right_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'right', 'dur':200}" id="menu3">
                     <div class="sidebar-content content-area vertical-col">
                         <button class="btn-mapa btn widget uib_w_26 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-mapa3">Mapa</button>
-                        <button class="btn-imoveis btn widget uib_w_27 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" >Imóveis</button>
-                        <button class="btn-config btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config3">Configurações</button>
+                        <button class="btn-imoveis btn widget uib_w_27 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1">Imóveis</button>
+                        <button class="btn-config btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config3">Perfil</button>
                         <button class="btn-sair btn widget uib_w_29 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair3">Sair</button>
+                        <div class="widget uib_w_40 scale-image d-margins" data-uib="media/img" data-ver="0">
+                            <figure class="figure-align">
+                                <img src="images/vasoura-01.png">
+                                <figcaption data-position="bottom"></figcaption>
+                            </figure>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -298,16 +355,19 @@
                     <input type="hidden" id="ilat">
                     <input type="hidden" id="ilng">
                     <div class="table-thing widget uib_w_29 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
-                        <label class="narrow-control label-top-left" for="inome">Nome:</label>
+                        <label class="narrow-control label-inline" for="inome" style="width:75px;">Nome:</label>
                         <input class="inome wide-control form-control default" type="text" placeholder="Casa" id="inome">
+                        <span class="input-group-addon "><i class="glyphicon glyphicon-home"></i></span>
                     </div>
                     <div class="table-thing widget uib_w_30 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
-                        <label class="narrow-control label-top-left" for="iqtd-comodos">Quantidade de Cômodos:</label>
+                        <label class="narrow-control label-inline" for="iqtd-comodos" style="width:75px;">Cômodos:</label>
                         <input class="iqtdComodos wide-control form-control default" type="number" placeholder="10" id="iqtd-comodos">
+                        <span class="input-group-addon "><i class="glyphicon glyphicon-inbox"></i></span>
                     </div>
                     <div class="table-thing widget uib_w_31 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
-                        <label class="narrow-control label-top-left" for="iendereco">Endereço:</label>
+                        <label class="narrow-control label-inline" for="iendereco" style="width:75px;">Endereço:</label>
                         <input class="iendereco wide-control form-control default" type="text" placeholder="Rua R, 100, Bairro, Cidade - PE" id="iendereco">
+                        <span class="input-group-addon "><i class="glyphicon glyphicon-map-marker"></i></span>
                     </div>
                     <br>
                     <button class="btn widget uib_w_28 d-margins btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" style="" id="btn-new-imovel">Inserir</button>
@@ -317,8 +377,14 @@
                     <div class="sidebar-content content-area vertical-col">
                         <button class="btn-mapa btn widget uib_w_26 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-mapa4">Mapa</button>
                         <button class="btn widget uib_w_27 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1">Imóveis</button>
-                        <button class="btn-config btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config4">Configurações</button>
+                        <button class="btn-config btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config4">Perfil</button>
                         <button class="btn-sair btn widget uib_w_29 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair4">Sair</button>
+                        <div class="widget uib_w_41 scale-image d-margins" data-uib="media/img" data-ver="0">
+                            <figure class="figure-align">
+                                <img src="images/vasoura-01.png">
+                                <figcaption data-position="bottom"></figcaption>
+                            </figure>
+                        </div>
                     </div>
                 </div>
             </div>
