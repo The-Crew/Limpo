@@ -45,6 +45,6 @@ function faceb(){
 
 var ajax;
 function abortEnvio(){
-  ajax.abort();
   $('.aguarde').remove();
+  ajax.abort();
 }

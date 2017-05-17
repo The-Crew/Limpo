@@ -73,34 +73,43 @@ function exibirPopup (dados, tipo = 'alert', callback){
 	  @filipe
 	*/
 	/* debuando */
-	debug('view.pagina.js - exibirPopup()', dados, tipo, callback);
+	debug('view.pagina.js - exibirPopup()', JSON.stringify(dados), tipo, callback);
 	/* */
-	if(tipo == 'alert'){
+	if(tipo == 'alert' || tipo == null){
 		dados.fixo = dados.fixo == true ? false : true;
 		var dialog = new BootstrapDialog({
-            title: dados.titlo,
+            title: dados.titulo,
             message: dados.texto,
             closable: dados.fixo
         });
         dialog.realize();
-        if(typeof(dados.titlo) == "undefined"){
+        dialog.getModalHeader().css('font-size', '16px');
+        dialog.getModalHeader().css('font-weight', 'bold');
+        dialog.getModalBody().css('font-size', '12px');
+        if(typeof(dados.titulo) == "undefined"){
         	dialog.setTitle('');
         	dialog.getModalHeader().css('background-color', '#337ab7');
         	dialog.getModalHeader().css('heigth', '5px');
         }
         if(dados.cor == 'vermelho'){
-	        dialog.getModalHeader().css('background-color', 'rgb(228, 87, 44)');
+	        dialog.getModalHeader().css('background-color', '#e00000');
+	        dialog.getModalHeader().css('color', '#fff');
+	    }else if(dados.cor =='azul'){
+	    	dialog.getModalHeader().css('background-color', '#337ab7');
+	    	dialog.getModalHeader().css('color', '#fff');
+	    }else{
+	    	dialog.getModalHeader().css('background-color', '#d8d8d8');
 	    }
         dialog.open();
 	}else if(tipo == 'confirm'){
-		BootstrapDialog.show({
-            title: dados.titlo,
+		var dialog = new BootstrapDialog({
+			title: dados.titulo,
             message: dados.texto,
             buttons: [{
-                icon: 'glyphicon glyphicon-ban-circle',
+                icon: dados.perigo ? 'glyphicon glyphicon-ban-circle' : '',
                 label: '  Confirmar',
-                cssClass: 'btn-danger',
-                action: ()=>{callback.call(null,true); dialogItself.close();}
+                cssClass: dados.perigo ? 'btn-danger' : 'btn-primary',
+                action: (dialogItself)=>{callback.call(null,true); dialogItself.close();}
             }, 
             {
                 label: 'Cancelar',
@@ -109,6 +118,15 @@ function exibirPopup (dados, tipo = 'alert', callback){
                     dialogItself.close();
                 }
             }]
-        });
+		})
+		dialog.realize();
+		dialog.getModalHeader().css('font-size', '16px');
+		dialog.getModalHeader().css('font-weight', 'bold');
+		dialog.getModalBody().css('font-size', '12px');
+		if(dados.perigo){
+			dialog.getModalHeader().css('background-color', '#e00000');
+			dialog.getModalHeader().css('color', '#fff');
+		}
+		dialog.open();
 	}
 }

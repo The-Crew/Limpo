@@ -119,8 +119,8 @@
         "certificateId_": "FGcfXMUR3Ui3k8J5F8QVUw2",
         "cordovaCLIVersion_": "6.2.0",
         "crosswalkVersion_": "19",
-        "appName_": "LimpoTeste3",
-        "appID_": "xdk.intel.template",
+        "appName_": "Limpô",
+        "appID_": "br.com.limpo.app",
         "appAccess_": {
           "mode": "whitelist",
           "network": [
@@ -203,8 +203,8 @@
         "excludedLibraries_": "",
         "appVersion_": "0.0.1",
         "appVersionCode_": "1",
-        "appDescription_": "Intel XDK template",
-        "appAuthor_": "Intel XDK",
+        "appDescription_": "Chamou, Chegou, Limpou",
+        "appAuthor_": "The Crew",
         "signed_": true
       },
       "iOS": {
@@ -222,8 +222,8 @@
         "certificateId_": "",
         "cordovaCLIVersion_": "6.2.0",
         "crosswalkVersion_": "19",
-        "appName_": "LimpoTeste3",
-        "appID_": "xdk.intel.template",
+        "appName_": "Limpô",
+        "appID_": "br.com.limpo.app",
         "appAccess_": {
           "mode": "whitelist",
           "network": [
@@ -253,8 +253,8 @@
         "iosProvs_": [],
         "appVersion_": "0.0.1",
         "appVersionCode_": "1",
-        "appDescription_": "Intel XDK template",
-        "appAuthor_": "Intel XDK"
+        "appDescription_": "Chamou, Chegou, Limpou",
+        "appAuthor_": "The Crew"
       },
       "Windows8": {
         "platform_": "windows8",
@@ -270,8 +270,8 @@
         "certificateId_": "",
         "cordovaCLIVersion_": "6.2.0",
         "crosswalkVersion_": "19",
-        "appName_": "LimpoTeste3",
-        "appID_": "xdk.intel.template",
+        "appName_": "Limpô",
+        "appID_": "br.com.limpo.app",
         "appAccess_": {
           "mode": "whitelist",
           "network": [
@@ -293,8 +293,8 @@
         "excludedLibraries_": "",
         "appVersion_": "0.0.0.1",
         "appVersionCode_": "1",
-        "appDescription_": "Intel XDK template",
-        "appAuthor_": "Intel XDK"
+        "appDescription_": "CHamou, Chegou, Limpou",
+        "appAuthor_": "The Crew"
       },
       "WebApp": {
         "platform_": "webapp",
@@ -303,8 +303,8 @@
         "preferences_": {},
         "isActive_": false,
         "certificateId_": "",
-        "appName_": "Intel XDK Template",
-        "appID_": "xdk.intel.template",
+        "appName_": "Limpô",
+        "appID_": "br.com.limpo.app",
         "appAccess_": {
           "mode": "whitelist",
           "network": [
@@ -318,8 +318,8 @@
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "appVersion_": "0.0.1",
-        "appDescription_": "Intel XDK template",
-        "appAuthor_": "Intel XDK"
+        "appDescription_": "Chamou, Chegou, Limpou",
+        "appAuthor_": "The Crew"
       },
       "Chrome": {
         "platform_": "chromeos",
@@ -340,11 +340,11 @@
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
-        "appName_": "LimpoTeste3",
-        "appID_": "xdk.intel.template",
+        "appName_": "Limpô",
+        "appID_": "br.com.limpo.app",
         "appVersion_": "0.0.1",
-        "appDescription_": "Intel XDK template",
-        "appAuthor_": "Intel XDK"
+        "appDescription_": "Chamou, Chegou, Limpou",
+        "appAuthor_": "The Crew"
       }
     },
     "gameAssetDirectory": "asset",

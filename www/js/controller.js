@@ -36,7 +36,7 @@ var Controller = function (){
 		
 		switch(tipo){
 			case 'user':
-        		if(verificar(dados).getStatus()!==false){
+        		if(verificar(dados)!==false){
         			/* debuando */
         			debug('controller.js - controller.verificar()', 'Verificação aprovou');
         			/* */
@@ -49,7 +49,7 @@ var Controller = function (){
         		}
         	break;
 		    case 'imovel':
-		    	if(verificar(dados).getStatus()!==false){
+		    	if(verificar(dados)!==false){
 		    		/* debuando */
         			debug('controller.js - controller.verificar()', 'Verificação aprovou');
         			/* */
@@ -106,7 +106,7 @@ var Controller = function (){
 					});
 					
 				}else{
-					view.err(dados.dados);
+					//view.err(dados.dados);
 				}
 			break;
 			case 'imovel':
@@ -145,13 +145,14 @@ var Controller = function (){
 					});
 					
 				}else{
-					view.err(dados.dados);
+					//view.err(dados.dados);
 				}
 			break;
 			case 'remover':
 				if(dados.tipo == 'user'){
 					var popup = {};
-					popup.titlo = '<h3>Tem certeza que deseja remover sua conta?</h3>';
+					popup.perigo = true;
+					popup.titulo = 'Tem certeza que deseja remover sua conta?';
 					popup.texto = 'Essa operação não terá mais retorno';
 					view.popup(popup, 'confirm', function(retorno){
 						if(retorno){
@@ -161,6 +162,7 @@ var Controller = function (){
 							json.tipo = 'user';
 							server.enviar(json, function(retorno){
 								console.log(retorno);
+								view.pagina('login');
 							});
 						}else{}
 					})

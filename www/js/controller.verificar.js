@@ -69,7 +69,6 @@ function verificar(dados){
                 }
 
                 if ((cpf.charAt(9) != a[9]) || (cpf.charAt(10) != a[10]) || cpf.match(expReg)){
-                    dados.setStatus(false);
                     dados.setCpf(false);
                 }
             /*
@@ -82,7 +81,6 @@ function verificar(dados){
             */
                 dados.setFone(dados.getFone().replace(/[^\d]+/g,''));
                 if(dados.getFone().length != 11){
-                    dados.setStatus(false);
                     dados.setFone(false);
                 }
             /*
@@ -94,7 +92,6 @@ function verificar(dados){
                 @filipe
             */
             if(dados.getSexo() == ""){
-                dados.setStatus(false);
                 dados.setSexo(false);
             }
             if(dados.getNome() == ""){
@@ -105,9 +102,13 @@ function verificar(dados){
                 FINALIZANDO VALIDAÇÃO DOS CAMPOS VAZIOS DO USUÁRIO
                 @filipe
             */
-            if(dados.getNome() && dados.getEmail() && dados.getCpf() && dados.getFone() && dados.getSexo()){
+            if(!dados.getNome() || !dados.getEmail() || !dados.getCpf() || !dados.getFone() || !dados.getSexo()){
+                view.err(dados);
+                view.popup({cor:'vermelho',titulo:'Campo inválido', texto:'Corrija o(s) campo(s) inválido(s) e tente novamente.'});
+                return false;
+            }else{
                 view.err('remover');
-                dados.setStatus(true);
+                return true;
             }
         break;
         case 'imovel':
@@ -116,40 +117,33 @@ function verificar(dados){
                 @filipe
             */
             if(dados.getQtdComodos() == ""){
-                dados.setStatus(false);
                 dados.setQtdComodos(false);
             }
             if(dados.getLat() == ""){
-                dados.setStatus(false);
                 dados.setLat(false);
             }
             if(dados.getLng() == ""){
-                dados.setStatus(false);
                 dados.setLng(false);
             }
             if(dados.getNome() == ""){
-                dados.setStatus(false);
                 dados.setNome(false);
             }
             if(dados.getEndereco() == ""){
-                dados.setStatus(false);
                 dados.setEndereco(false);
             }
             /*
                 FINALIZANDO VALIDAÇÃO DOS CAMPOS VAZIOS DO IMÓVEL
                 @filipe
             */
-            if(dados.getQtdComodos() && dados.getLat() && dados.getLng() && dados.getNome()){
-                view.err('remover');
-                dados.setStatus(true);
+            if(!dados.getNome() || !dados.getEndereco() || !dados.getQtdComodos()){
+                view.err(dados);
+                view.popup({cor:'vermelho',titulo:'Campo inválido', texto:'Corrija o(s) campo(s) inválido(s) e tente novamente.'});
+                return false;
             }else{
-                if(!dados.getNome() || !dados.getEndereco() || !dados.getQtdComodos()){
-                    view.popup({titulo:'Campo inválido', texto:'Corrija o(s) campo(s) inválido(s) e tente novamente.'})
-                }
+                view.err('remover');
+                return true
             }
         break;
 
     }
-    return dados;
-
-};
+}

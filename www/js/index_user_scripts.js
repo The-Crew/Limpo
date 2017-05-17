@@ -263,6 +263,16 @@
     }, function(){
         view.pagina('login');
     });
+
+    $(document).on("click", "#btn-sol", function(evt)
+    {
+        /* your code goes here */ 
+        view.popup({
+            titulo:'Solicitar', 
+            texto:'<h4>Severina Maria</h4><img style="margin-top:-25px" src="http://vignette1.wikia.nocookie.net/narutoworld/images/0/0f/Cinco_Estrelas.png/revision/latest?cb=20150218031839&path-prefix=pt-br" height="15px"><div>Sexo: Feminio</div>Socorro, Jaboatão dos Guararapes - PE</div><div>Distancia: 15Km</div><div>Tempo estimado: 25min</div>'
+            },'confirm', ()=>{view.pagina('config')})
+         return false;
+    });
 }
 
 document.addEventListener("app.Ready", register_event_handlers, false);
