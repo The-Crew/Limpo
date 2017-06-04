@@ -1,0 +1,36 @@
+{
+  "project": {
+    "projectSettingsVersion": "3.0.0",
+    "currentBuildConfiguration": "Android",
+    "projectFiles": {},
+    "projectDirectories": {}
+  },
+  "editorTab": {
+    "currentEditorMode": 0
+  },
+  "build-tab": {
+    "selectedTargets": []
+  },
+  "simulator": {
+    "cordova-simulate": {
+      "tinyhippos-geosettings": {
+        "id": "tinyhippos-geosettings",
+        "key": "geosettings",
+        "value": "{\"position\":{\"latitude\":-8.162509585392284,\"longitude\":-34.9159402525394,\"altitude\":100,\"accuracy\":150,\"altitudeAccuracy\":80,\"heading\":0,\"speed\":0,\"timeStamp\":\"new Date(1496434489251)\"},\"delay\":\"0\",\"timeout\":false}",
+        "prefix": "tinyhippos-"
+      },
+      "tinyhippos-statusbar-visible": {
+        "id": "tinyhippos-statusbar-visible",
+        "key": "statusbar-visible",
+        "value": true,
+        "prefix": "tinyhippos-"
+      },
+      "tinyhippos-geo-map-zoom-key": {
+        "id": "tinyhippos-geo-map-zoom-key",
+        "key": "geo-map-zoom-key",
+        "value": 16,
+        "prefix": "tinyhippos-"
+      }
+    }
+  }
+}
