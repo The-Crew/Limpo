@@ -11,12 +11,21 @@
     if(user.getId() == undefined){
         //view.pagina('login');
     }
+     $(document).on("click", "#ativar-gps", function(evt)
+    {         
+      ativarGps();
+         return false;
+    });
+     
+
     $(document).on("click", ".voltar", function(evt)
     {
          /*global activate_subpage */
          //window.history.back();
-         view.pagina('mapa');
-         uib_sb.close_all_sidebars(); 
+        
+       view.pagina('mapa');  
+       
+        uib_sb.close_all_sidebars(); 
         return false;
     });
         /* button  #btnImoveis */

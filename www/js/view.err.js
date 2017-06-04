@@ -134,7 +134,8 @@ var err = function(dados){
 
     function deixarCampoVermelho(id){
         console.log("CAMPO '"+id+"' FICOU VERMELHO");
-        $(id).attr('style', 'border-color: #f00; box-shadow: 0px 0px 10px #ff0f0f;');
+       $(id).attr('style', 'border-color: #f00; box-shadow: 0px 0px 5px #ff0f0f;');
+       
     }
     function campoCorreto(id){
         console.log("CAMPO '"+id+"' CORRETO");
