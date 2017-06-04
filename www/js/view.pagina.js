@@ -30,6 +30,8 @@ function chamarPagina (page){
 				}
 				listaImoveis += '</div>'
 				$("#imoveisContent").html(listaImoveis);
+			}else{
+				$("#imoveisContent").html('');
 			}
 			activate_page('#imoveis')
 ;		break;
@@ -61,6 +63,32 @@ function chamarPagina (page){
 			$('#aemail').attr("value", user.getEmail());
 			$('#afone').attr("value", user.getFone());
 			activate_page('#config');
+		break;
+		case 'aguardando':
+			activate_page('#aguardando');
+		break;
+		case 'faxineiras':
+			var i = 0;
+			function buscarFax(i){
+				if(faxineiras[i]){
+					controller.solicitar({tipo:'sys',idFax:faxineiras[i].getId()},'faxineira', function(retorno){
+						faxineiras[i].setJson(retorno);
+						++i;
+						buscarFax(i);
+					});	
+				}else{
+					var listaFaxineiras = '<div class="panel-group" id="listaFaxineiras">';
+					for(var i in faxineiras){
+						var collapse = ' <div style="margin-bottom: 0px;" class="panel widget uib_w_32 panel-default" data-uib="twitter%20bootstrap/collapsible" data-ver="1"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#listaImoveis" href="#iidc'+faxineiras[i].getId()+'" data-parent="#null"> <div class="panel-heading"> <h4 class="panel-title"> '+faxineiras[i].getNome()+'</h4> </div> </a> <div id="iidc'+faxineiras[i].getId()+'" class="panel-collapse collapse"> <div class="panel-body"> <div class="col uib_col_2 single-col" data-uib="layout/col" data-ver="0"> <div class="widget-container content-area vertical-col"> <div class="btn-group uib-bs-flex widget uib_w_33 d-margins" data-uib="twitter%20bootstrap/button_group" data-ver="1">';
+						var botoes = '<div class="btn-group uib-bs-flex widget uib_w_37 d-margins" data-uib="twitter%20bootstrap/button_group" data-ver="1"> <button id="'+i+'" class="btn-share-fax btn widget uib_w_38 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" style="background: #baeaba;"><i class="fa fa-share-alt" data-position="icon only"></i> </button>  <button id="'+i+'" class="btn-sol-fax btn widget uib_w_40 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" style="background: #bed2e4;"><i class="fa fa-check" data-position="icon only"></i> </button>';
+						listaFaxineiras += collapse+botoes+'</div></div></div></div></div></div>';
+					}
+					listaFaxineiras += '</div>'
+					$("#faxineirasContent").html(listaFaxineiras);
+					activate_page('#faxineiras');
+				}
+			}
+			buscarFax(i);
 		break;
 
 	}
@@ -97,6 +125,8 @@ function exibirPopup (dados, tipo = 'alert', callback){
 	    }else if(dados.cor =='azul'){
 	    	dialog.getModalHeader().css('background-color', '#337ab7');
 	    	dialog.getModalHeader().css('color', '#fff');
+	    }else if(dados.cor =='branco'){
+	    	
 	    }else{
 	    	dialog.getModalHeader().css('background-color', '#d8d8d8');
 	    }
@@ -109,12 +139,12 @@ function exibirPopup (dados, tipo = 'alert', callback){
                 icon: dados.perigo ? 'glyphicon glyphicon-ban-circle' : '',
                 label: '  Confirmar',
                 cssClass: dados.perigo ? 'btn-danger' : 'btn-primary',
-                action: (dialogItself)=>{callback.call(null,true); dialogItself.close();}
+                action: (dialogItself)=>{ dialogItself.close(); callback.call(null,true);}
             }, 
             {
                 label: 'Cancelar',
                 action: function(dialogItself){
-                    callback.call(false);
+                    //callback.call(null,false);
                     dialogItself.close();
                 }
             }]
