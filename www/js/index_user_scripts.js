@@ -66,6 +66,14 @@
          uib_sb.toggle_sidebar($("#menu1"));  
          return false;
     });
+
+
+    $(document).click(function(e){
+        uib_sb.close_all_sidebars();
+    });
+
+
+    
     
         /* button  #btn-menu2 */
     $(document).on("click", "#btn-menu2", function(evt)
