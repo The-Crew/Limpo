@@ -4,7 +4,7 @@
   @filipe
 */
 
-var enviarDados = function(tipo, dados=null){
+var enviarDados = function(tipo, dados=null, callback){
     
     switch(tipo){
         case 'user':
@@ -80,6 +80,15 @@ var enviarDados = function(tipo, dados=null){
                 controller.registrar(json, 'remover');
             }
         break;
+        case 'faxineira':
+        /* debuando */
+            debug('view.getsetdados.js - enviarDados()', tipo, dados);
+        /* */
+            dados = {idFax:dados,tipo:"sys"};
+            controller.solicitar(dados,'faxineira',function(faxineira){
+                callback.call(null,faxineira);
+            })
+        break;
     }
     
     function login(objetoDoPerfilDoGoogle){
@@ -100,7 +109,7 @@ var enviarDados = function(tipo, dados=null){
 OBTER DADOS EM DESENVOLVIMENTO
 @filipe
 */
-var obterDados = function(dados, tipo){
+var obterDados = function(dados, tipo, callback){
 /*Esses códigos foram apenas para teste. 
 Pode ser alterado conforme a implementação do projeto.
 Favor informar caso seja teste.
@@ -150,6 +159,24 @@ Favor informar caso seja teste.
                 $('#lng').attr('value', imoveis[idi].getLng());
             }
 
+        break;
+        case 'faxineira':
+        /* debuando */
+            debug('view.getsetdados.js - obterDados()', dados, tipo);
+        /* */
+            if(dados == 'melhor'){
+                dados = {};
+                dados.tipo = "melhor";
+                dados.idUser = user.getId();
+                controller.solicitar(dados,'faxineira', function(faxineira){
+                    callback.call(null,faxineira);
+                });
+            }else{
+                dados = {idFax:dados,tipo:"sys"};
+                controller.solicitar(dados,'faxineira',function(faxineira){
+                    callback.call(null,faxineira);
+                })
+            }
         break;
     }
 

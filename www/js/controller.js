@@ -7,10 +7,10 @@ var debugConsole = true,
 	debugPopup = false;
 
 function debug(frase, dados1="", dados2="", dados3="", dados4=""){
-	dados = dados1;
-	dados += dados2 != "" ? ', '+dados2 : "";
-	dados += dados3 != "" ? ', '+dados3 : "";
-	dados += dados4 != "" ? ', '+dados4 : "";
+	dados = dados1 != "" ? typeof(dados1) != 'object' ? dados1 : JSON.stringify(dados1) : "";
+	dados += dados2 != "" ? typeof(dados2) != 'object' ? ', '+ dados2 : ', '+ JSON.stringify(dados2) : "";
+	dados += dados3 != "" ? typeof(dados3) != 'object' ? ', '+ dados3 : ', '+ JSON.stringify(dados3) : "";
+	dados += dados4 != "" ? typeof(dados4) != 'object' ? ', '+ dados4 : ', '+ JSON.stringify(dados4) : "";
 
 	if(debug){
 		if(debugPopup){
@@ -200,6 +200,12 @@ var Controller = function (){
 					});
 				}
 			break;
+			case 'faxineira':
+				dados.idUser = user.getId();
+				server.enviar(dados, function(){
+
+				});
+			break;
 		}
 	}
 	this.solicitar = function(dados, tipo, callback){
@@ -233,6 +239,15 @@ var Controller = function (){
 								//UMA FORMA PRATICA DE SETAR OS DADOS NO OBJETO
 								imoveis[i].setJson(retorno.imoveis[i]);
 							}
+							var listaFax = [];
+							for(var i in retorno.indic){
+								if(!listaFax.hasOwnProperty(retorno.indic[i].id)){
+									listaFax[retorno.indic[i].id] = true;
+									faxineiras[i] = new Faxineira();
+									//UMA FORMA PRATICA DE SETAR OS DADOS NO OBJETO
+									faxineiras[i].setJson(retorno.indic[i]);
+								}
+							}
 							console.log(imoveis);
 							$("#nomeUser").html("Bem vindo "+user.getNome()+"!");
 							view.pagina('mapa');
@@ -262,6 +277,60 @@ var Controller = function (){
 						return retorno;
 					}
 				}
+			break;
+			case 'faxineira':
+				console.log("faxineira");
+				if(dados.tipo == 'lista'){
+					dados = {action:"faxineira", tipo:"lista", idUser:user.getId()};
+					server.obter(dados, function(retorno){
+						var listaFax = [];
+						for(var i in retorno.indic){
+							if(!listaFax.hasOwnProperty(retorno.indic[i].id)){
+								listaFax[retorno.indic[i].id] = true;
+								faxineiras[i] = new Faxineira();
+								//UMA FORMA PRATICA DE SETAR OS DADOS NO OBJETO
+								faxineiras[i].setJson(retorno.indic[i]);
+							}
+						}
+						callback.call(null, faxineiras);
+					});
+				}else if(dados.tipo == 'sys'){
+					dados = {action:"faxineira", tipo:"sys", idFax:dados.idFax};
+					server.obter(dados, function(retorno){
+						console.log("Faxineira: "+retorno);
+						callback.call(null, JSON.parse(retorno));
+					});
+				}else if(dados.tipo == 'melhor'){
+					dados = {action:"faxineira", tipo:"melhor", idUser:dados.idUser};
+					server.obter(dados, function(retorno){
+						console.log("Melhor faxineira: "+retorno);
+						callback.call(null, JSON.parse(retorno));
+					});
+				}else if(dados.action == "solicitar"){
+					dados.idUser = user.getId();
+					server.obter(dados, function(retorno){
+						console.log("Retorno: "+retorno);
+						retorno = JSON.parse(retorno);
+						if(retorno == 'false'){
+							view.popup({texto:'Faxineira ocupada'})
+						}else{
+							var listaFax = [];
+							for(var i in retorno.indic){
+								if(!listaFax.hasOwnProperty(retorno.indic[i].id)){
+									listaFax[retorno.indic[i].id] = true;
+									faxineiras[i] = new Faxineira();
+									//UMA FORMA PRATICA DE SETAR OS DADOS NO OBJETO
+									faxineiras[i].setJson(retorno.indic[i]);
+								}
+							}
+							view.pagina('aguardando');
+						}
+						
+					});
+				}else if(typeof(dados) == "number"){
+					controller.solicitar({action:'solicitar',idFax:faxineiraASerSolicitada, solLat:imoveis[dados].getLat(), solLng:imoveis[dados].getLng()},'faxineira');
+				}
+
 			break;
 		}
 	}

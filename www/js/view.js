@@ -9,20 +9,20 @@
 
 var View = function(){
 
-	this.enviarDados = function(tipo, dados=null){
+	this.enviarDados = function(tipo, dados=null,callback){
 		/* debuando */
 		debug('view.js - view.enviarDados()',tipo, dados);
 		/* */
 
-		enviarDados(tipo, dados);
+		enviarDados(tipo, dados,callback);
 	}
 
-	this.obterDados = function(tipo, dados=null){
+	this.obterDados = function(tipo, dados=null,callback){
 		/* debuando */
 		debug('view.js - view.obterDados()',tipo, dados);
 		/* */
 
-		obterDados(tipo, dados);
+		obterDados(tipo, dados,callback);
 	}
 
 	this.err = function (dados, tipo){

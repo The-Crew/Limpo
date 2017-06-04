@@ -3,7 +3,7 @@
   @filipe
 */
 
-function Imovel()
+function Faxineira()
 {
   /*
     PARA MANTER OS ATRIBUTOS PRIVADOS NÃO SE COLOCA O THIS A FRENTE
@@ -11,12 +11,16 @@ function Imovel()
   */
   var id;
   var nome;
-  var qtdComodos;
+  var cpf;
+  var sexo;
+  var email;
+  var fone;
   var endereco;
+  var qualificacao;
   var lat;
   var lng;
   var status = true;
-  var tipo = 'imovel';
+  var tipo = 'faxineira';
 
   /*
     PARA TRANSFORMAR UMA FUNÇÃO EM UM MÉTODO PÚBLICO DO OBJETO
@@ -25,8 +29,12 @@ function Imovel()
   */
   this.setId = setId;
   this.setNome = setNome;
-  this.setQtdComodos = setQtdComodos;
+  this.setCpf = setCpf;
+  this.setSexo = setSexo;
+  this.setEmail = setEmail;
+  this.setFone = setFone;
   this.setEndereco = setEndereco;
+  this.setQualificacao = setQualificacao;
   this.setLat = setLat;
   this.setLng = setLng;
   this.setStatus = setStatus;
@@ -34,8 +42,12 @@ function Imovel()
 
   this.getId = getId;
   this.getNome = getNome;
-  this.getQtdComodos = getQtdComodos;
+  this.getCpf = getCpf;
+  this.getSexo = getSexo;
+  this.getEmail = getEmail;
+  this.getFone = getFone;
   this.getEndereco = getEndereco;
+  this.getQualificacao = getQualificacao;
   this.getLat = getLat;
   this.getLng = getLng;
   this.getStatus = getStatus;
@@ -50,12 +62,27 @@ function Imovel()
     nome = _nome;
   }
    
-  function setQtdComodos(_qtd){
-    qtdComodos = _qtd;
+  function setCpf(_cpf){
+    cpf = _cpf;
+  }
+   
+ function setSexo(_sexo) {
+    sexo = _sexo;
+  }
+   
+ function setEmail(_email) {
+      email = _email;
+  }
+
+ function setFone(_fone) {
+      fone = _fone;
   }
   
   function setEndereco(_endereco) {
     endereco = _endereco;
+  }
+  function setQualificacao(_qualificacao) {
+    qualificacao = _qualificacao;
   }
 
   function setLat(_lat) {
@@ -73,8 +100,12 @@ function Imovel()
   function setJson(_json){
     id = _json.id;
     nome = _json.nome;
-    qtdComodos = _json.qtdComodos;
+    cpf = _json.cpf;
+    sexo = _json.sexo;
+    email = _json.email;
+    fone = _json.fone;
     endereco = _json.endereco;
+    qualificacao = _json.qualificacao;
     lat = _json.lat;
     lng = _json.lng;
     status = _json.status;
@@ -88,12 +119,27 @@ function Imovel()
     return nome;
   }
    
-  function getQtdComodos(){
-    return qtdComodos;
+  function getCpf(){
+    return cpf;
+  }
+   
+ function getSexo() {
+    return sexo;
+  }
+   
+ function getEmail() {
+      return email;
+  }
+
+ function getFone() {
+      return fone;
   }
   
   function getEndereco() {
     return endereco;
+  }
+  function getQualificacao() {
+    return qualificacao;
   }
 
   function getLat() {
@@ -115,8 +161,12 @@ function Imovel()
     imovel = {};
     imovel.id = id;
     imovel.nome = nome;
-    imovel.qtdComodos = qtdComodos;
+    jsonUser.cpf = cpf;
+    jsonUser.sexo = sexo;
+    jsonUser.email = email;
+    jsonUser.fone = fone;
     imovel.endereco = endereco;
+    imovel.qualificacao = qualificacao;
     imovel.lat = lat;
     imovel.lng = lng;
     imovel.status = status;
@@ -129,7 +179,6 @@ function Imovel()
   }
 }
 
-imoveis = [];
-imovelASerEditado = '';
-imovelASerDeletado = '';
-imovelASerSolicitado = '';
+faxineiras = [];
+faxineiraASerCompartilhada = '';
+faxineiraASerSolicitada = '';

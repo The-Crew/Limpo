@@ -10,6 +10,12 @@ var Server = function(){
     var servidor = {};
     servidor.server = 'http://ip.filipebotelho.com.br:3130'
     servidor.i = 0;
+    function getServidor(){
+    	console.log(servidor.server);
+    }
+    function setServidor(srv){
+    	servidor.server = srv;
+    }
     this.enviar = enviar;
     this.obter = obter;
     function enviar(dados, callback, server = servidor.server){
@@ -17,8 +23,8 @@ var Server = function(){
 		debug("server.js - server.enviar() - OBJETO ENVIADO", JSON.stringify(dados));
 		debug("server.js - server.enviar() - CONECTANDO NO SERVIDOR", server);
 		/* */
+		servidor.server = server;
     	var retorno;
-
         ajax = $.ajax({
 			type: 'POST',
 			//async: false,
@@ -62,6 +68,7 @@ var Server = function(){
 		debug("server.js - server.obter() - OBJETO ENVIADO", JSON.stringify(dados));
 		debug("server.js - server.obter() - CONECTANDO NO SERVIDOR", server);
 		/* */
+		servidor.server = server;
     	var retorno;
     	ajax = $.ajax({
 			type: 'POST',
