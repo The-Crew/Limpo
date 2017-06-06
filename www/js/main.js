@@ -154,9 +154,10 @@ var onMapSuccess = function (position) {
  
    // Latitude = position.coords.latitude;
    // Longitude = position.coords.longitude;
+   console.log("Chamando onMapSucess");
 
     Latitude = -8.162509585392284;
-    Longitude = 34.9159402525394;
+    Longitude = -34.9159402525394;
      
     getMap(Latitude, Longitude);
 }
@@ -167,7 +168,7 @@ function getMap(latitude, longitude) {
  
     var mapOptions = {
         center: new google.maps.LatLng(0, 0),
-        zoom: 20,
+        zoom: 16,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
  
@@ -179,7 +180,7 @@ function getMap(latitude, longitude) {
     });
  
     marker.setMap(map);
-    map.setZoom(15);
+    map.setZoom(16);
     map.setCenter(marker.getPosition());
 }
  

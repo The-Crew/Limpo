@@ -19,6 +19,10 @@ function chamarPagina (page){
 		break;
 		case 'mapa':
 			activate_page('#mapa');
+			setTimeout(function() { 
+				//drawMap(); 
+				onMapSuccess();
+			}, 300);
 		break;
 		case 'imoveis':
 			if(imoveis[0]){
