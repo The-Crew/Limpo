@@ -7,9 +7,9 @@
     <head>
         <link rel="stylesheet" type="text/css" href="media_button_bar/css/media_button_bar.css">
         <link rel="stylesheet" type="text/css" href="icon-fonts/font-awesome-4.3.0/css/font-awesome.css">
-        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" class="uib-framework-theme">
         <meta charset="UTF-8">
-        <title>Blank App Designer Cordova Web App Project Template</title>
+        <title>Limpo</title>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 
         <!--
@@ -57,7 +57,7 @@
   * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
 -->
         <script src="cordova.js" id="xdkJScordova_"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9C_WmP1Od2kPSA4g95AofT8I6kbDKsKo&amp" async="true" defer=""></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9C_WmP1Od2kPSA4g95AofT8I6kbDKsKo&amp;" async="true" defer=""></script>
         <script src="js/main.js"></script>
         <script src="js/app.js"></script>
         <!-- for your event code, see README and file comments for details -->
@@ -93,7 +93,7 @@
         <script type="application/javascript" src="sidebar/js/sidebar.js"></script>
     </head>
 
-    <body>
+        <body>
         <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
         <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
         <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
@@ -135,14 +135,19 @@
                     </div>
                 </div>
                 <div class="upage-content ac0 content-area vertical-col left" id="page_13_7">
-                    <button class="btn-novo-imovel btn widget uib_w_28 d-margins btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" style="margin: 5px;" id=""><i class="glyphicon glyphicon-edit button-icon-left" data-position="left"></i>Inserir</button>
+                    <button class="btn-novo-imovel btn widget uib_w_28 d-margins btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" style="margin: 5px;"><i class="glyphicon glyphicon-edit button-icon-left" data-position="left"></i>Inserir</button>
                     <div id="imoveisContent"></div>
                 </div>
                 <div class="inner-element uib_w_33 uib_sidebar rightbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/right_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'right', 'dur':200}" id="menu2">
                     <div class="sidebar-content content-area vertical-col">
-                        <button class="btn-faxineiras btn widget uib_w_27 cor-btn-menu d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1">Faxineiras</button>
-                        <button class="btn-config btn widget uib_w_28 d-margins cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config2">Perfil</button>
-                        <button class="btn-sair btn widget uib_w_29 d-margins cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair2">Sair</button>
+                        <div style="margin: 2px; color: white; border-bottom: 1px">
+                            <blockquote>
+                                <h5>  Seja Bem Vindo: <div id="nome-user"> Usuario </div> </h5>
+                            </blockquote>
+                        </div>
+                        <button class="btn-faxineiras btn widget uib_w_27 cor-btn-menu d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1"><i class="glyphicon glyphicon-thumbs-up button-icon-left" data-position="left"></i>Faxineiras</button>
+                        <button class="btn-config btn widget uib_w_28 d-margins cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config2"><i class="glyphicon glyphicon-user button-icon-left" data-position="left"></i>Perfil</button>
+                        <button class="btn-sair btn widget uib_w_29 d-margins cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair2"><i class="glyphicon glyphicon-share button-icon-left" data-position="left"></i>Sair</button>
                         <div class="widget uib_w_38 scale-image d-margins" data-uib="media/img" data-ver="0">
                             <figure class="figure-align">
                                 <img src="images/vasoura-01.png">
@@ -153,9 +158,9 @@
                 </div>
             </div>
         </div>
-        <div class="upage hidden bg" id="mapa">
-            <div class="upage-outer">
-                <div class="uib-header header-bg container-group inner-element uib_w_14 uib-header-fixed" data-uib="layout/header" data-ver="0">
+        <div class="upage hidden bg" id="mapa" style="height: 100%">
+            <div class="upage-outer" style="height: 100%">
+                <div class="uib-header header-bg container-group inner-element uib_w_14 uib-header-relative" data-uib="layout/header" data-ver="0">
                     <h2></h2>
                     <div class="widget-container content-area horiz-area wrapping-col left">
 
@@ -178,15 +183,20 @@
                     </div>
                 </div>
                 <div class="upage-content ac0 content-area vertical-col left" id="page_14_72">
-                    <div id="map" style=" width:100%; height:640px; border: solid 1px;">
-					</div>
+                    <div id="map" style=" width:100%; height:100%; border: solid 1px;">
+                    </div>
                     <button class="btn-solicitar uib-footer-fixed btn widget uib_w_12 d-margins btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-solicitar">Solicitar</button>
                 </div>
                 <div class="inner-element uib_w_34 uib_sidebar rightbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/right_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'right', 'dur':200}" id="menu1">
                     <div class="sidebar-content content-area vertical-col">
-                        <button class="btn-faxineiras btn widget uib_w_27 cor-btn-menu d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1">Faxineiras</button>
-                        <button class="btn-config btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config">Perfil</button>
-                        <button class="btn-sair btn widget uib_w_29 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair">Sair</button>
+                        <div style="margin: 2px; color: white; border-bottom: 1px">
+                            <blockquote>
+                                <h5>  Seja Bem Vindo: <div id="nome-user"> Usuario </div> </h5>
+                            </blockquote>
+                        </div>
+                        <button class="btn-faxineiras btn widget uib_w_27 cor-btn-menu d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1"><i class="glyphicon glyphicon-thumbs-up button-icon-left" data-position="left"></i>Faxineiras</button>
+                        <button class="btn-config btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config"><i class="glyphicon glyphicon-user button-icon-left" data-position="left"></i>Perfil</button>
+                        <button class="btn-sair btn widget uib_w_29 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair"><i class="glyphicon glyphicon-share button-icon-left" data-position="left"></i>Sair</button>
                         <div class="widget uib_w_39 scale-image d-margins" data-uib="media/img" data-ver="0">
                             <figure class="figure-align">
                                 <img src="images/vasoura-01.png">
@@ -269,7 +279,7 @@
                         </button>
                     </div>
                     <div class="widget-container content-area horiz-area wrapping-col right">
-                        <button class="btn widget uib_w_22 btn-lg btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu3" style="margin:-5px -5px 0px 0px; color:#fff"><i class="fa fa-navicon button-icon-left" data-position="right"></i>
+                        <button class="btn widget uib_w_22 btn-lg btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu3" style="margin:-5px -5px 0px 0px; color:#fff"> <i class="fa fa-navicon button-icon-right" data-position="right"></i>
                         </button>
                     </div>
                 </div>
@@ -323,9 +333,14 @@
                 </div>
                 <div class="inner-element uib_w_35 uib_sidebar rightbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/right_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'right', 'dur':200}" id="menu3">
                     <div class="sidebar-content content-area vertical-col">
-                        <button class="btn-faxineiras btn widget uib_w_27 cor-btn-menu d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1">Faxineiras</button>
-                        <button class="btn-config btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config3">Perfil</button>
-                        <button class="btn-sair btn widget uib_w_29 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair3">Sair</button>
+                        <div style="margin: 2px; color: white; border-bottom: 1px">
+                            <blockquote>
+                                <h5>  Seja Bem Vindo: <div id="nome-user"> Usuario </div> </h5>
+                            </blockquote>
+                        </div>
+                        <button class="btn-faxineiras btn widget uib_w_27 cor-btn-menu d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1"><i class="glyphicon glyphicon-thumbs-up button-icon-left" data-position="left"></i>Faxineiras</button>
+                        <button class="btn-config btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config3"><i class="glyphicon glyphicon-user button-icon-left" data-position="left"></i>Perfil</button>
+                        <button class="btn-sair btn widget uib_w_29 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair3"><i class="glyphicon glyphicon-share button-icon-left" data-position="left"></i>Sair</button>
                         <div class="widget uib_w_40 scale-image d-margins" data-uib="media/img" data-ver="0">
                             <figure class="figure-align">
                                 <img src="images/vasoura-01.png">
@@ -377,9 +392,14 @@
                 </div>
                 <div class="inner-element uib_w_36 uib_sidebar rightbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/right_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'right', 'dur':200}" id="menu4">
                     <div class="sidebar-content content-area vertical-col">
-                        <button class="btn-faxineiras btn widget uib_w_27 cor-btn-menu d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1">Faxineiras</button>
-                        <button class="btn-config btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config4">Perfil</button>
-                        <button class="btn-sair btn widget uib_w_29 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair4">Sair</button>
+                        <div style="margin: 2px; color: white; border-bottom: 1px">
+                            <blockquote>
+                                <h5>  Seja Bem Vindo: <div id="nome-user"> Usuario </div> </h5>
+                            </blockquote>
+                        </div>
+                        <button class="btn-faxineiras btn widget uib_w_27 cor-btn-menu d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1"><i class="glyphicon glyphicon-thumbs-up button-icon-left" data-position="left"></i>Faxineiras</button>
+                        <button class="btn-config btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config4"><i class="glyphicon glyphicon-user button-icon-left" data-position="left"></i>Perfil</button>
+                        <button class="btn-sair btn widget uib_w_29 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair4"><i class="glyphicon glyphicon-share button-icon-left" data-position="left"></i>Sair</button>
                         <div class="widget uib_w_41 scale-image d-margins" data-uib="media/img" data-ver="0">
                             <figure class="figure-align">
                                 <img src="images/vasoura-01.png">
@@ -412,10 +432,15 @@
 
                 </div>
                 <div class="inner-element uib_w_35 uib_sidebar rightbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/right_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'right', 'dur':200}" id="menu5">
-                    <div class="sidebar-content content-area vertical-col">       
-                        <button class="btn-faxineiras btn widget uib_w_27 cor-btn-menu d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1">Faxineiras</button>
-                        <button class="btn-config btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config3">Perfil</button>
-                        <button class="btn-sair btn widget uib_w_29 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair3">Sair</button>
+                    <div class="sidebar-content content-area vertical-col">
+                        <div style="margin: 2px; color: white; border-bottom: 1px">
+                            <blockquote>
+                                <h5>  Seja Bem Vindo: <div id="nome-user"> Usuario </div> </h5>
+                            </blockquote>
+                        </div>
+                        <button class="btn-faxineiras btn widget uib_w_27 cor-btn-menu d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1"><i class="glyphicon glyphicon-thumbs-up button-icon-left" data-position="left"></i>Faxineiras</button>
+                        <button class="btn-config btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config3"><i class="glyphicon glyphicon-user button-icon-left" data-position="left"></i>Perfil</button>
+                        <button class="btn-sair btn widget uib_w_29 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair3"><i class="glyphicon glyphicon-share button-icon-left" data-position="left"></i>Sair</button>
                         <div class="widget uib_w_40 scale-image d-margins" data-uib="media/img" data-ver="0">
                             <figure class="figure-align">
                                 <img src="images/vasoura-01.png">
@@ -444,11 +469,26 @@
                 </div>
                 <div class="upage-content ac0 content-area vertical-col left" id="page_72_53">
                     <div id="content-aguardando">
-                        <h4>Severina</h4>
-                        <img style="margin-top:-15px" src="images/star15.png" height="15px"><img style="margin-top:-15px" src="images/star15.png" height="15px"><img style="margin-top:-15px" src="images/star15.png" height="15px">
-                        <div>Sexo: Feminino</div>
-                        <div>Rua Paraná, 160, Socorro, Jaboatão</div>
-                        <div>Distancia: 15Km</div><div>Tempo estimado: 25min</div>
+                        <div class="text-center">
+                            <div class="widget scale-image d-margins" data-uib="media/img" data-ver="0">
+                                <figure class="figure-align">
+                                    <img src="images/icon-faxineira.png">
+                                </figure>
+
+                            </div>
+                            <h2>Severina</h2>
+                            <img style="margin-top:-15px" src="images/star15.png" height="15px">
+                            <img style="margin-top:-15px" src="images/star15.png" height="15px">
+                            <img style="margin-top:-15px" src="images/star15.png" height="15px">
+                        </div>
+                        <blockquote>
+                            <div class="">
+                                <div>Sexo: Feminino</div>
+                                <div>Rua Paraná, 160, Socorro, Jaboatão</div>
+                                <div>Distancia: 15Km</div>
+                                <div>Tempo estimado: 25min</div>
+                            </div>
+                        </blockquote>
                     </div>
                     <br>
                     <br>
@@ -456,9 +496,14 @@
                 </div>
                 <div class="inner-element uib_w_35 uib_sidebar rightbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/right_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'right', 'dur':200}" id="menu6">
                     <div class="sidebar-content content-area vertical-col">
-                        <button class="btn-faxineiras btn widget uib_w_27 cor-btn-menu d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1">Faxineiras</button>
-                        <button class="btn-config btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config3">Perfil</button>
-                        <button class="btn-sair btn widget uib_w_29 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair3">Sair</button>
+                        <div style="margin: 2px; color: white; border-bottom: 1px">
+                            <blockquote>
+                                <h5>  Seja Bem Vindo: <div id="nome-user"> Usuario </div> </h5>
+                            </blockquote>
+                        </div>
+                        <button class="btn-faxineiras btn widget uib_w_27 cor-btn-menu d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1"><i class="glyphicon glyphicon-thumbs-up button-icon-left" data-position="left"></i>Faxineiras</button>
+                        <button class="btn-config btn widget uib_w_28 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-config3"><i class="glyphicon glyphicon-user button-icon-left" data-position="left"></i>Perfil</button>
+                        <button class="btn-sair btn widget uib_w_29 d-margins  cor-btn-menu btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btn-menu-sair3"><i class="glyphicon glyphicon-share button-icon-left" data-position="left"></i>Sair</button>
                         <div class="widget uib_w_40 scale-image d-margins" data-uib="media/img" data-ver="0">
                             <figure class="figure-align">
                                 <img src="images/vasoura-01.png">
@@ -469,7 +514,6 @@
                 </div>
             </div>
         </div>
-        
 
     </body>
 

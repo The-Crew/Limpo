@@ -79,39 +79,8 @@ var getLocation = function() {
     };
     //Execute when the DOM loads  
     */
-function onDeviceReady() {
-    try {
-        if (navigator.geolocation !== null) {
-            document.getElementById("map").style.height = screen.height + "px";
-            watchMapPosition();
-        }
-        else {
-            alert("navigator.geolocation == null")
-        }
-    } catch (e) {
-        alert(e.message);
-    }
 
-    try {
-        //hide splash screen
-        navigator.splashscreen.hide(); 
-    } catch (e) {}
-}
-//document.addEventListener("deviceready", onDeviceReady, false);
-//------------------------------------------------------------------------
-//------------------------------------------------------------------------
-
-document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log("navigator.geolocation works well");
-    }
-
-
-//-----------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------
-/*
+    /*
  var onSuccess = function(position) {
         alert('Latitude: '          + position.coords.latitude          + '\n' +
               'Longitude: '         + position.coords.longitude         + '\n' +
@@ -131,8 +100,34 @@ document.addEventListener("deviceready", onDeviceReady, false);
     }
  
     Navegador.Geolocalização.GetCurrentPosition (onSuccess, onError); */
+
+    //document.addEventListener("deviceready", onDeviceReady, false);
+var map;
  
  //--------------------------------------------------------------------------------------------
+function onDeviceReady() {
+    try {
+        if (navigator.geolocation !== null) {
+            document.getElementById("map").style.height = screen.height + "px";
+            watchMapPosition();
+        }
+        else {
+            alert("navigator.geolocation == null")
+        }
+    } catch (e) {
+        alert(e.message);
+    }
+
+    try {
+        //hide splash screen
+        navigator.splashscreen.hide(); 
+    } catch (e) {}
+}
+
+document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        console.log("navigator.geolocation works well");
+    }
 
 function ativarGps(){
     view.popup({
@@ -148,41 +143,93 @@ function getMapLocation() {
     
    navigator.geolocation.getCurrentPosition(onMapSuccess, onMapError, {enableHighAccuracy: true});
 }
- 
 //  retorno de Success callback para obter coordenadas geográficas 
 var onMapSuccess = function (position) {
  
-   // Latitude = position.coords.latitude;
-   // Longitude = position.coords.longitude;
-   console.log("Chamando onMapSucess");
+    console.log("Chamando onMapSucess");
 
-    Latitude = -8.162509585392284;
-    Longitude = -34.9159402525394;
-     
+    Latitude = position.coords.latitude;
+    Longitude = position.coords.longitude;
+    // Latitude = -8.162509585392284;
+    // Longitude = -34.9159402525394;  
     getMap(Latitude, Longitude);
 }
  
 //  Obter mapa usando coordenadas 
- 
+var directionsService ;
+var directionsDisplay;
+var latLong;
+
 function getMap(latitude, longitude) {
- 
+    
+        directionsService = new google.maps.DirectionsService;
+        directionsDisplay = new google.maps.DirectionsRenderer;
+
+        var marker = new google.maps.Marker({ position: latLong });
+        latLong = new google.maps.LatLng(latitude, longitude);
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+        center: new google.maps.LatLng(latitude, longitude),
+        zoom: 10,
+        //mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+        style: google.maps.MapTypeControlStyle.ROADMAP
+        },
+        zoomControl: true,
+        zoomControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_TOP
+        },
+        scaleControl: true,
+        streetViewControl: false,
+        fullscreenControl: true,
+        });
+
+        directionsDisplay.setMap(map);
+
+        var marker = new google.maps.Marker({
+        position: latLong
+        });
+        marker.setMap(map);
+        map.setZoom(15);
+        map.setCenter(marker.getPosition());
+/*
     var mapOptions = {
         center: new google.maps.LatLng(0, 0),
-        zoom: 16,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        zoom: 10,
+        //mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+        style: google.maps.MapTypeControlStyle.ROADMAP
+        },
+        zoomControl: true,
+        zoomControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_TOP
+        },
+        scaleControl: true,
+        streetViewControl: false,
+        fullscreenControl: true
     };
- 
-    map = new google.maps.Map (document.getElementById("map"), mapOptions);
-    var latLong = new google.maps.LatLng(latitude, longitude);
- 
-    var marker = new google.maps.Marker({
-        position: latLong
-    });
- 
-    marker.setMap(map);
-    map.setZoom(16);
-    map.setCenter(marker.getPosition());
-}
+        map = new google.maps.Map (document.getElementById("map"), mapOptions);
+        */       
+}           
+    var latLong;
+        
+    function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+            console.log(latLong);
+          directionsService.route({origin: latLong,
+                                    destination: latLong2,
+                                    travelMode: 'DRIVING' },
+        function(response, status) {
+                if (status === 'OK') {
+                directionsDisplay.setDirections(response);
+            } else {
+                console.log(response.request);
+                window.alert('Directions request failed due to ' + status);
+            }
+            console.log(latLong);
+        });  
+    }
  
 //  retorno de retorno de sucesso para assistir sua mudança de posição 
  
@@ -217,4 +264,8 @@ function watchMapPosition() {
  
     Navegador.Geolocalização.GetCurrentPosition ( OnWeatherSuccess,  onWeatherError, { enableHighAccuracy:true});
 } */
- 
+
+//--------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------

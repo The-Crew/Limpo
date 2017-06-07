@@ -11,7 +11,6 @@
     if(user.getId() == undefined){
         //view.pagina('login');
     }
-    
     $(document).on("click", ".voltar", function(evt)
     {
          /*global activate_subpage */
@@ -67,12 +66,12 @@
          uib_sb.toggle_sidebar($("#menu1"));  
          return false;
     });
-    
-    /* FECHAR SIDEBAR AO CLICAR FORA */
+
+    /* Fechar o menu lateral com um click fora*/
     $(document).click(function(e){
         uib_sb.close_all_sidebars();
-    });    
-    
+    });
+  
         /* button  #btn-menu2 */
     $(document).on("click", "#btn-menu2", function(evt)
     {
@@ -187,10 +186,10 @@
          //activate_page("#mapa"); 
 
         facebookConnectPlugin.login(["public_profile"], function (success){
-            //alert('ID: '+success.authResponse['userID']);
+            alert('ID: '+success.authResponse['userID']);
             view.enviarDados('login', success.authResponse.userID);
         }, function (failure){
-            alert('Faclha: '+JSON.stringify(failure));
+            alert('failure'+JSON.stringify(failure));
         });
          return false;
     });
@@ -245,12 +244,6 @@
             case 'config':
                 view.pagina('mapa');
             break;
-            case 'faxineiras':
-                view.pagina('mapa');
-            break;
-            case 'aguardando':
-                //view.pagina('mapa');
-            break;
             default:
                 sairDoApp();
             break;
@@ -262,9 +255,7 @@
     {
         /* your code goes here */ 
         //navigator.app.exitApp();
-        facebookConnectPlugin.logout((success)=>{
-            view.pagina("login");
-        },(failure)=>{});
+        //facebookConnectPlugin.logout(Function success, Function failure)
          return false;
     });
 
@@ -400,7 +391,7 @@
                 }
                 view.popup({
                     titulo:'Solicitar', 
-                    texto:'<h4>'+faxineira.nome+'</h4>'+star+'<div>Sexo: '+faxineira.sexo+'</div><div>'+faxineira.endereco+'</div><div>Distancia: 15Km</div><div>Tempo estimado: 25min</div>'
+                    texto:'<h4>'+faxineira.nome+'</h4>'+star+'<div>Sexo: '+faxineira.sexo+'</div>'+faxineira.endereco+'</div><div>Distancia: 15Km</div><div>Tempo estimado: 25min</div>'
                 },'confirm', ()=>{
                     controller.solicitar({action:'solicitar',idFax:faxineira.id, solLat:imovelASerSolicitado.getLat(), solLng:imovelASerSolicitado.getLng()},'faxineira');
                 });
