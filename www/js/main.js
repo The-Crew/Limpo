@@ -139,26 +139,25 @@ function getMap(latitude, longitude) {
         directionsDisplay = new google.maps.DirectionsRenderer;
         
         if(!map){
-            map = new google.maps.Map (document.getElementById("map"), {
-        center: new google.maps.LatLng(latitude, longitude),
-        zoom: 10,
-        //mapTypeId: google.maps.MapTypeId.ROADMAP
-        mapTypeControl: true,        mapTypeControlOptions: {
-        style: google.maps.MapTypeControlStyle.ROADMAP
-        },
-        zoomControl: true,
-        zoomControlOptions: {
-        position: google.maps.ControlPosition.RIGHT_TOP
-        },
-        scaleControl: true,
-        streetViewControl: false,
-        fullscreenControl: true,
-        });
+            map = new google.maps.Map (document.getElementById("map"), 
+            {
+                center: new google.maps.LatLng(latitude, longitude),
+                zoom: 10,
+                mapTypeControl: true,
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle.ROADMAP
+                },
+                zoomControl: true,
+                zoomControlOptions: {
+                position: google.maps.ControlPosition.RIGHT_TOP
+            },
+            scaleControl: true,
+            streetViewControl: false,
+            fullscreenControl: true,
+            });
         }
 
-        marker = new google.maps.Marker({ position: latLong });
         latLong = new google.maps.LatLng(latitude, longitude);
-///
         if(!marker){
           marker = new google.maps.Marker({
             position: latLong,
@@ -170,24 +169,44 @@ function getMap(latitude, longitude) {
         }
         map.setZoom(16);
         map.setCenter(marker.getPosition());
+        directionsDisplay.setOptions({ suppressMarkers:true });
         directionsDisplay.setMap(map);
 }
 
-    var latLong2 = "Centro, Jaboatão dos Guararapes - PE";
-    function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-            console.log(latLong);
-          directionsService.route({origin: latLong,
-                                    destination: latLong2,
-                                    travelMode: 'DRIVING' },
-        function(response, status) {
+    var latLong2;
+    var marker2;
+    function criarRota(directionsService, directionsDisplay) {
+        console.log(latLong);
+        
+        returnPosition("Centro, Jaboatão dos Guararapes - PE", function(position){
+            latLong2 = new google.maps.LatLng(position.lat, position.lng);
+
+            directionsService.route(
+            {
+                origin: latLong,
+                destination: latLong2,
+                travelMode: 'DRIVING'
+            },function(response, status) {
                 if (status === 'OK') {
-                directionsDisplay.setDirections(response);
-            } else {
-                console.log(response.request);
-                window.alert('Directions request failed due to ' + status);
-            }
-            console.log(latLong);
-        });  
+                    
+                    directionsDisplay.setDirections(response);
+                        marker2 = new google.maps.Marker({
+                        position: latLong2,
+                        map: map
+                    });
+                } else {
+                    console.log(response.request);
+                    window.alert('Directions request failed due to ' + status);
+                }
+                    console.log(latLong);
+            });
+        })         
+    }
+    function removerRota(){
+        directionsDisplay.setMap(null);
+        directionsDisplay = null;
+        marker2.setMap(null);
+        marker2 = null;
     }
  
 //  retorno de retorno de sucesso para assistir sua mudança de posição 
