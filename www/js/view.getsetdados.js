@@ -52,24 +52,21 @@ var enviarDados = function(tipo, dados=null, callback){
             var novoImovel = new Imovel;
 
             if(dados == 'registrar'){
-                novoImovel.setNome($("#inome").val());
-                novoImovel.setQtdComodos($("#iqtd-comodos").val());
-                novoImovel.setEndereco($("#iendereco").val());
+                
             }else if(dados == 'atualizar'){
                 novoImovel.setId(imovelASerEditado);
-                novoImovel.setNome($("#inome").val());
-                novoImovel.setQtdComodos($("#iqtd-comodos").val());
-                novoImovel.setEndereco($("#iendereco").val());
             }
             //novoImovel.setEndereco("Rua Paraná, 160, SOcorro, Jaboatão dos Guararapes");
-            setTimeout(function() {
+            novoImovel.setNome($("#inome").val());
+            novoImovel.setQtdComodos($("#iqtd-comodos").val());
+            novoImovel.setEndereco($("#iendereco").val(), ()=>{
                 console.log("Json novoImovel:");
-            console.log(novoImovel.getJson());
-            json = {};
-            json.dados = novoImovel;
-            json.action = dados == 'atualizar' ? 'atualizar' : 'registrar';
-            controller.registrar(json, 'imovel');
-            }, 1000);
+                console.log(novoImovel.getJson());
+                json = {};
+                json.dados = novoImovel;
+                json.action = dados == 'atualizar' ? 'atualizar' : 'registrar';
+                controller.registrar(json, 'imovel');
+            });
             
         break;
 

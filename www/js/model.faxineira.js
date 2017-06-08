@@ -182,3 +182,4 @@ function Faxineira()
 faxineiras = [];
 faxineiraASerCompartilhada = '';
 faxineiraASerSolicitada = '';
+var distanciaF, tempoF;

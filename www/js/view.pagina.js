@@ -72,6 +72,7 @@ function chamarPagina (page){
 			activate_page('#config');
 		break;
 		case 'aguardando':
+			$('.btn-aguardando').show();
 			activate_page('#aguardando');
 		break;
 		case 'faxineiras':

@@ -250,6 +250,7 @@ var Controller = function (){
 							}
 							console.log(imoveis);
 							$(".nome-user").html(user.getNome());
+							carregado = true;
 							view.pagina('mapa');
 						}else{
 							/* debuando */
@@ -311,7 +312,7 @@ var Controller = function (){
 					server.obter(dados, function(retorno){
 						console.log("Retorno: "+retorno);
 						retorno = JSON.parse(retorno);
-						if(retorno == 'false'){
+						if(retorno == false){
 							view.popup({texto:'Faxineira ocupada'})
 						}else{
 							var listaFax = [];
@@ -323,7 +324,32 @@ var Controller = function (){
 									faxineiras[i].setJson(retorno.indic[i]);
 								}
 							}
+							for(var i = 0; i < retorno.qualificacao; i++){
+								conteudoAguardando+='<img style="margin-top:-15px" src="images/star15.png" height="15px">';
+							}
+							console.log(retorno)
+							retorno.sexo = retorno.sexo == "M" ? "Masculino" : "Feminino";
+							var conteudoAguardando = '<div class="text-center"><div class="widget scale-image d-margins" data-uib="media/img" data-ver="0"><figure class="figure-align"><img src="images/icon-faxineira.png"></figure></div><h2>'+retorno.nome+'</h2>';
+							for(var i = 0; i < retorno.qualificacao; i++){
+								conteudoAguardando +='<img style="margin-top:-15px" src="images/star15.png" height="15px">';
+							}
+							conteudoAguardando += '</div><blockquote><div class=""><div>Sexo: ';
+							conteudoAguardando += retorno.sexo+'</div><div>'+retorno.endereco+'</div><div>Distancia: '+distanciaF+'</div><div>Tempo estimado: '+tempoF+'</div></div></blockquote>';
+							$("#content-aguardando").html(conteudoAguardando);
 							view.pagina('aguardando');
+						}
+						
+					});
+				}else if(dados.action == "solicitarOff"){
+					dados.idUser = user.getId();
+					server.obter(dados, function(retorno){
+						console.log("Retorno: "+retorno);
+						retorno = JSON.parse(retorno);
+						if(retorno == 'false'){
+							controller.solicitar({action:'solicitarOff',idFax:faxineiraASerSolicitada, solLat:null, solLng:null},'faxineira');
+						}else{
+							$('.btn-aguardando').hide();
+							view.pagina('mapa');
 						}
 						
 					});

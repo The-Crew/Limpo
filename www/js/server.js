@@ -6,9 +6,10 @@
 
 var Server = function(){
     
-    //var servidor = 'http://ip.filipebotelho.com.br:3130';
     var servidor = {};
-    servidor.server = 'http://192.168.1.111:3130'
+    servidor.server = 'http://ip.filipebotelho.com.br:3130';
+    servidor.server1 = 'http://192.168.66.101:3130';
+    servidor.server2 = 'http://192.168.1.111:3130';
     servidor.i = 0;
     this.enviar = enviar;
     this.obter = obter;
@@ -24,7 +25,7 @@ var Server = function(){
 			//async: false,
 			data: JSON.stringify(dados),
 			url: server,
-			timeout: 10000,
+			timeout: 20000,
 			beforeSend : function(){
 				console.log('Aguardando... '+servidor.i);
 				if(servidor.i == 0)	$(document.body).append('<div class="aguarde modal-backdrop fade in" style="z-index: 1040;"></div> <div class="aguarde modal bootstrap-dialog type-primary fade size-normal in" data-backdrop="static" role="dialog" aria-hidden="false" tabindex="-1" style="top: 50%; z-index: 1050; display: block; margin-top: -25px;"> <div class="modal-dialog"><div class="modal-content" style="background: none;border: none;box-shadow: none;"><div id="aguarde-body" style="left: 50%; position: relative;"><img src="images/loading.gif"  style="margin-left: -25px; height:50px;"></img><div></div></div></div>');
@@ -42,13 +43,13 @@ var Server = function(){
 	            
 	            if(servidor.i == 0){
 	            	servidor.i++;
-	            	enviar(dados, callback, 'http://192.168.66.101:3130');
+	            	enviar(dados, callback, servidor.server1);
 	            }else if(servidor.i == 1){
 	            	servidor.i++;
-		            enviar(dados, callback, 'http://192.168.66.101:3130');
+		            enviar(dados, callback, servidor.server2);
 		        }else if(servidor.i == 2){
 	            	servidor.i++;
-		            enviar(dados, callback, 'http://ip.filipebotelho.com.br:3130');
+		            enviar(dados, callback, servidor.server);
 		        }else{
 		        	servidor.i = 0;
 		        	$('.aguarde').remove();
@@ -72,7 +73,7 @@ var Server = function(){
 			//async: false,
 			data: JSON.stringify(dados),
 			url: server,
-			timeout: 10000,
+			timeout: 20000,
 			beforeSend : function(){
 				console.log('Aguardando... '+servidor.i);
 				if(servidor.i == 0)	$(document.body).append('<div class="aguarde modal-backdrop fade in" style="z-index: 1040;"></div> <div class="aguarde modal bootstrap-dialog type-primary fade size-normal in" data-backdrop="static" role="dialog" aria-hidden="false" tabindex="-1" style="top: 50%; z-index: 1050; display: block; margin-top: -25px;"> <div class="modal-dialog"><div class="modal-content" style="background: none;border: none;box-shadow: none;"><div id="aguarde-body" style="left: 50%; position: relative;"><img src="images/loading.gif"  style="margin-left: -25px; height:50px; "></img><div></div></div></div>');
@@ -90,13 +91,13 @@ var Server = function(){
 	            
 	            if(servidor.i == 0){
 	            	servidor.i++;
-	            	obter(dados, callback, 'http://192.168.66.101:3130');
+	            	obter(dados, callback, servidor.server1);
 	            }else if(servidor.i == 0){
 	            	servidor.i++;
-	            	obter(dados, callback, 'http://192.168.66.101:3130');
+	            	obter(dados, callback, servidor.server2);
 	            }else if(servidor.i == 1){
 	            	servidor.i++;
-		            obter(dados, callback, 'http://ip.filipebotelho.com.br:3130');
+		            obter(dados, callback, servidor.server);
 		        }else{
 		        	$('.aguarde').remove();
 		        	servidor.i = 0;

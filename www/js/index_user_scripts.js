@@ -265,6 +265,13 @@
          return false;
     });
 
+    $(document).on("click", ".btn-aguardando", function(evt)
+    {
+        /* your code goes here */ 
+        view.pagina('aguardando');
+         return false;
+    });
+
     /* BOTÃO REGISTRAR DA PÁGINA DE CADASTRO */
     $(document).on("click", "#btn-cadastro", function(evt)
     {
@@ -405,11 +412,10 @@
         view.obterDados("melhor","faxineira",function(faxineira){
             if(faxineira != false){
                 faxineira.sexo = faxineira.sexo == "m"?"Masculino":"Feminino";
-                var distancia, tempo;
                 retornarDistanciaPopupFaxineira(faxineira.endereco,local, (_tempo, _distancia)=>{
                     console.log("Retornar distancia Melhor Fax")
-                    distancia = _distancia;
-                    tempo = _tempo;
+                    distanciaF = _distancia;
+                    tempoF = _tempo;
                     popup();
                 })
                 //faxineira.endereco = faxineira.endereco == undefined ? "Endereço não informado":faxineira.endereco;
@@ -426,8 +432,9 @@
                 function popup() {
                     view.popup({
                         titulo:'Solicitar', 
-                        texto:'<h4>'+faxineira.nome+'</h4>'+star+'<div>Sexo: '+faxineira.sexo+'</div><div>'+faxineira.endereco+'</div><div>Distancia: '+distancia+'</div><div>Tempo estimado: '+tempo+'</div>'
+                        texto:'<h4>'+faxineira.nome+'</h4>'+star+'<div>Sexo: '+faxineira.sexo+'</div><div>'+faxineira.endereco+'</div><div>Distancia: '+distanciaF+'</div><div>Tempo estimado: '+tempoF+'</div>'
                     },'confirm', ()=>{
+                        faxineiraASerSolicitada = faxineira.id;
                         controller.solicitar({action:'solicitar',idFax:faxineira.id, solLat:imovelASerSolicitado.getLat(), solLng:imovelASerSolicitado.getLng()},'faxineira');
                     });
                 }
@@ -460,10 +467,9 @@
         }
         view.obterDados("f2","faxineira",function(faxineira){
             faxineira.sexo = faxineira.sexo == "m"?"Masculino":"Feminino";
-            var distancia, tempo;
             retornarDistanciaPopupFaxineira(faxineira.endereco, local, (_tempo, _distancia)=>{
-                distancia = _distancia;
-                tempo = _tempo;
+                distanciaF = _distancia;
+                tempoF = _tempo;
                 popup();
             })
             //faxineira.endereco = faxineira.endereco == undefined ? "Endereço não informado":faxineira.endereco;
@@ -479,8 +485,9 @@
             function popup(){
                 view.popup({
                     titulo:'Solicitar', 
-                    texto:'<h4>'+faxineira.nome+'</h4>'+star+'<div>Sexo: '+faxineira.sexo+'</div>'+faxineira.endereco+'</div><div>Distancia: '+distancia+'</div><div>Tempo estimado: '+tempo+'</div>'
+                    texto:'<h4>'+faxineira.nome+'</h4>'+star+'<div>Sexo: '+faxineira.sexo+'</div>'+faxineira.endereco+'</div><div>Distancia: '+distanciaF+'</div><div>Tempo estimado: '+tempoF+'</div>'
                 },'confirm', ()=>{
+                    faxineiraASerSolicitada = faxineira.id;
                     controller.solicitar({action:'solicitar',idFax:faxineira.id, solLat:local.lat, solLng:local.lng},'faxineira');
                 });
             }
@@ -527,7 +534,12 @@
             callback.call(null, "Não informado", "Não informado");
         }
     }
-
+    /* BOTÃO DE CANCELAR SOLICITAÇÃO, LOCALIZADO NA PAGINA DE AGUARDANDO */
+    $(document).on("click", "#btn-cancel-sol", function(evt)
+    {
+        controller.solicitar({action:'solicitarOff',idFax:faxineiraASerSolicitada, solLat:null, solLng:null},'faxineira');
+        return false;
+    });
     /* BOTÃO DE COMPARTILHAR FAXINEIRA, QUE APARECE NA LISTA DE FAXINEIRAS, NA PÁGINA FAXINEIRAS */
     $(document).on("click", ".btn-share-fax", function(evt)
     {

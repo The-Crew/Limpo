@@ -222,6 +222,9 @@ var onMapWatchSuccess = function (position) {
         Latitude = updatedLatitude;
         Longitude = updatedLongitude;
         //view.pagina('mapa')
+        if(carregado){
+            getMap(updatedLatitude, updatedLongitude);
+        }
     }
 }
  
