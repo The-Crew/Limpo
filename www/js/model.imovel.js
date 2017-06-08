@@ -54,13 +54,24 @@ function Imovel()
     qtdComodos = _qtd;
   }
   
-  function setEndereco(_endereco) {
-    endereco = _endereco;
+  function setEndereco(_endereco, callback) {
+
+    var loweredText = _endereco.toLowerCase();
+    var words = loweredText.split(" ");
+    for (var a = 0; a < words.length; a++) {
+        var w = words[a];
+
+        var firstLetter = w[0];
+        w = firstLetter.toUpperCase() + w.slice(1);
+
+        words[a] = w;
+    }
+    endereco = words.join(" ");
     returnPosition(_endereco, (local)=>{
       lat =local.lat;
-      console.log(lat);
       lng = local.lng;
-      console.log(lng);
+      console.log('Latitude e Longitude no objeto Imovel: '+lat+", "+lng);
+      callback.call();
     })
   }
 

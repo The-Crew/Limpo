@@ -164,11 +164,12 @@ function getMap(latitude, longitude) {
             icon: 'images/marcador15.png'
           });
           marker.setMap(map);
+          map.setZoom(16);
+          map.setCenter(marker.getPosition());
         }else{
           marker.setPosition(latLong);
+          map.setCenter(marker.getPosition());
         }
-        map.setZoom(16);
-        map.setCenter(marker.getPosition());
         directionsDisplay.setOptions({ suppressMarkers:true });
         directionsDisplay.setMap(map);
 }
@@ -221,7 +222,6 @@ var onMapWatchSuccess = function (position) {
         Latitude = updatedLatitude;
         Longitude = updatedLongitude;
         //view.pagina('mapa')
-        getMap(updatedLatitude, updatedLongitude);
     }
 }
  
