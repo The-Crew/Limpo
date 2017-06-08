@@ -56,6 +56,12 @@ function Imovel()
   
   function setEndereco(_endereco) {
     endereco = _endereco;
+    returnPosition(_endereco, (local)=>{
+      lat =local.lat;
+      console.log(lat);
+      lng = local.lng;
+      console.log(lng);
+    })
   }
 
   function setLat(_lat) {

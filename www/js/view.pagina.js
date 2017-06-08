@@ -19,10 +19,13 @@ function chamarPagina (page){
 		break;
 		case 'mapa':
 			activate_page('#mapa');
-			setTimeout(function() { 
-				//drawMap(); 
-				onMapSuccess();
-			}, 300);
+			/*if(!intervalo){
+				getMapLocation()
+				intervalo = setInterval(()=>{getMapLocation()}, 2000)
+			}else{
+				alert('mapa')
+				intervalo = setInterval(()=>{getMapLocation()}, 2000)
+			}*/
 		break;
 		case 'imoveis':
 			if(imoveis[0]){

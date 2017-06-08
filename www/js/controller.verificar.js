@@ -119,10 +119,10 @@ function verificar(dados){
             if(dados.getQtdComodos() == ""){
                 dados.setQtdComodos(false);
             }
-            if(dados.getLat() == ""){
+            if(dados.getLat() == "" || dados.getLat() == undefined){
                 dados.setLat(false);
             }
-            if(dados.getLng() == ""){
+            if(dados.getLng() == "" || dados.getLng() == undefined){
                 dados.setLng(false);
             }
             if(dados.getNome() == ""){
@@ -135,7 +135,7 @@ function verificar(dados){
                 FINALIZANDO VALIDAÇÃO DOS CAMPOS VAZIOS DO IMÓVEL
                 @filipe
             */
-            if(!dados.getNome() || !dados.getEndereco() || !dados.getQtdComodos()){
+            if(!dados.getNome() || !dados.getEndereco() || !dados.getQtdComodos() || !dados.getLat() || !dados.getLng()){
                 view.err(dados);
                 view.popup({cor:'vermelho',titulo:'Campo inválido', texto:'Corrija o(s) campo(s) inválido(s) e tente novamente.'});
                 return false;

@@ -8,14 +8,8 @@ var Server = function(){
     
     //var servidor = 'http://ip.filipebotelho.com.br:3130';
     var servidor = {};
-    servidor.server = 'http://ip.filipebotelho.com.br:3130'
+    servidor.server = 'http://192.168.1.111:3130'
     servidor.i = 0;
-    function getServidor(){
-    	console.log(servidor.server);
-    }
-    function setServidor(srv){
-    	servidor.server = srv;
-    }
     this.enviar = enviar;
     this.obter = obter;
     function enviar(dados, callback, server = servidor.server){
@@ -51,7 +45,10 @@ var Server = function(){
 	            	enviar(dados, callback, 'http://192.168.66.101:3130');
 	            }else if(servidor.i == 1){
 	            	servidor.i++;
-		            enviar(dados, callback, 'http://192.168.1.111:3130');
+		            enviar(dados, callback, 'http://192.168.66.101:3130');
+		        }else if(servidor.i == 2){
+	            	servidor.i++;
+		            enviar(dados, callback, 'http://ip.filipebotelho.com.br:3130');
 		        }else{
 		        	servidor.i = 0;
 		        	$('.aguarde').remove();
@@ -94,9 +91,12 @@ var Server = function(){
 	            if(servidor.i == 0){
 	            	servidor.i++;
 	            	obter(dados, callback, 'http://192.168.66.101:3130');
+	            }else if(servidor.i == 0){
+	            	servidor.i++;
+	            	obter(dados, callback, 'http://192.168.66.101:3130');
 	            }else if(servidor.i == 1){
 	            	servidor.i++;
-		            obter(dados, callback, 'http://192.168.1.111:3130');
+		            obter(dados, callback, 'http://ip.filipebotelho.com.br:3130');
 		        }else{
 		        	$('.aguarde').remove();
 		        	servidor.i = 0;

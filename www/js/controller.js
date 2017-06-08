@@ -249,7 +249,7 @@ var Controller = function (){
 								}
 							}
 							console.log(imoveis);
-							$("#nomeUser").html("Bem vindo "+user.getNome()+"!");
+							$("#nome-user").html(user.getNome());
 							view.pagina('mapa');
 						}else{
 							/* debuando */

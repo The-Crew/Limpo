@@ -2,7 +2,7 @@
 # in essence, everything but *.xdk file and www directory
 /*
 !/www
-!/docs
+!/Documentos
 !/config.xml
 !/README.md
 !/LICENSE.md

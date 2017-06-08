@@ -79,32 +79,6 @@ var getLocation = function() {
     };
     //Execute when the DOM loads  
     */
-
-    /*
- var onSuccess = function(position) {
-        alert('Latitude: '          + position.coords.latitude          + '\n' +
-              'Longitude: '         + position.coords.longitude         + '\n' +
-              'Altitude: '          + position.coords.altitude          + '\n' +
-              'Accuracy: '          + position.coords.accuracy          + '\n' +
-              'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-              'Heading: '           + position.coords.heading           + '\n' +
-              'Speed: '             + position.coords.speed             + '\n' +
-              'Timestamp: '         + position.timestamp                + '\n');
-    };
- 
-    // onError Callback receives a PositionError object 
-    // 
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
- 
-    Navegador.Geolocalização.GetCurrentPosition (onSuccess, onError); */
-
-    //document.addEventListener("deviceready", onDeviceReady, false);
-var map;
- 
- //--------------------------------------------------------------------------------------------
 function onDeviceReady() {
     try {
         if (navigator.geolocation !== null) {
@@ -125,9 +99,6 @@ function onDeviceReady() {
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log("navigator.geolocation works well");
-    }
 
 function ativarGps(){
     view.popup({
@@ -140,7 +111,6 @@ var Latitude = undefined;
 var Longitude = undefined;
 //  Obter coordenadas geográficas 
 function getMapLocation() {
-    
    navigator.geolocation.getCurrentPosition(onMapSuccess, onMapError, {enableHighAccuracy: true});
 }
 //  retorno de Success callback para obter coordenadas geográficas 
@@ -159,21 +129,21 @@ var onMapSuccess = function (position) {
 var directionsService ;
 var directionsDisplay;
 var latLong;
+var marker;
+var map;
 
 function getMap(latitude, longitude) {
+    console.log("getMap")
     
         directionsService = new google.maps.DirectionsService;
         directionsDisplay = new google.maps.DirectionsRenderer;
-
-        var marker = new google.maps.Marker({ position: latLong });
-        latLong = new google.maps.LatLng(latitude, longitude);
-
-        var map = new google.maps.Map(document.getElementById('map'), {
+        
+        if(!map){
+            map = new google.maps.Map (document.getElementById("map"), {
         center: new google.maps.LatLng(latitude, longitude),
         zoom: 10,
         //mapTypeId: google.maps.MapTypeId.ROADMAP
-        mapTypeControl: true,
-        mapTypeControlOptions: {
+        mapTypeControl: true,        mapTypeControlOptions: {
         style: google.maps.MapTypeControlStyle.ROADMAP
         },
         zoomControl: true,
@@ -184,37 +154,26 @@ function getMap(latitude, longitude) {
         streetViewControl: false,
         fullscreenControl: true,
         });
+        }
 
-        directionsDisplay.setMap(map);
-
-        var marker = new google.maps.Marker({
-        position: latLong
-        });
-        marker.setMap(map);
-        map.setZoom(15);
+        marker = new google.maps.Marker({ position: latLong });
+        latLong = new google.maps.LatLng(latitude, longitude);
+///
+        if(!marker){
+          marker = new google.maps.Marker({
+            position: latLong,
+            icon: 'images/marcador15.png'
+          });
+          marker.setMap(map);
+        }else{
+          marker.setPosition(latLong);
+        }
+        map.setZoom(16);
         map.setCenter(marker.getPosition());
-/*
-    var mapOptions = {
-        center: new google.maps.LatLng(0, 0),
-        zoom: 10,
-        //mapTypeId: google.maps.MapTypeId.ROADMAP
-        mapTypeControl: true,
-        mapTypeControlOptions: {
-        style: google.maps.MapTypeControlStyle.ROADMAP
-        },
-        zoomControl: true,
-        zoomControlOptions: {
-        position: google.maps.ControlPosition.RIGHT_TOP
-        },
-        scaleControl: true,
-        streetViewControl: false,
-        fullscreenControl: true
-    };
-        map = new google.maps.Map (document.getElementById("map"), mapOptions);
-        */       
-}           
-    var latLong;
-        
+        directionsDisplay.setMap(map);
+}
+
+    var latLong2 = "Centro, Jaboatão dos Guararapes - PE";
     function calculateAndDisplayRoute(directionsService, directionsDisplay) {
             console.log(latLong);
           directionsService.route({origin: latLong,
@@ -234,7 +193,7 @@ function getMap(latitude, longitude) {
 //  retorno de retorno de sucesso para assistir sua mudança de posição 
  
 var onMapWatchSuccess = function (position) {
- 
+    console.log('onMapWatchSuccess')
     var updatedLatitude = position.coords.latitude;
     var updatedLongitude = position.coords.longitude;
  
@@ -242,7 +201,7 @@ var onMapWatchSuccess = function (position) {
  
         Latitude = updatedLatitude;
         Longitude = updatedLongitude;
- 
+        //view.pagina('mapa')
         getMap(updatedLatitude, updatedLongitude);
     }
 }
@@ -252,6 +211,11 @@ var onMapWatchSuccess = function (position) {
 function onMapError(error) {
     console.log('code: ' + error.code + '\n' +
         'message: ' + error.message + '\n');
+    view.popup({
+        titulo:'Falha ao obter localização do GPS', 
+        cor: 'vermelhor',
+        texto:'Reinicie o aplicativo com o GPS ligado e tente novamente',
+    },'alert');
 }
  
 // Watch your changing position 
@@ -265,7 +229,50 @@ function watchMapPosition() {
     Navegador.Geolocalização.GetCurrentPosition ( OnWeatherSuccess,  onWeatherError, { enableHighAccuracy:true});
 } */
 
-//--------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------
+ function returnPosition(local, callback){
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode( { 'address': local}, function(results, status) {
+        if(status == "OK"){
+            var position = {};
+            position.lat = results[0].geometry.location.lat();
+            position.lng = results[0].geometry.location.lng();
+            callback.call(null,position);
+        }else{
+            callback.call(null,false);
+        }
+    });
+ }
+
+ function returnDistancia(origem, destino, callback){
+    origem = new google.maps.LatLng(origem.lat, origem.lng);
+    destino = new google.maps.LatLng(destino.lat, destino.lng);
+    var service = new google.maps.DistanceMatrixService();
+    service.getDistanceMatrix(
+      {
+        origins: [origem],
+        destinations: [destino],
+        travelMode: 'DRIVING',
+        //transitOptions: TransitOptions,
+        //drivingOptions: DrivingOptions,
+        //unitSystem: UnitSystem,
+        //avoidHighways: Boolean,
+        //avoidTolls: Boolean,
+      }, (response, status)=>{
+        var tempo = response.rows[0].elements[0].duration.text;
+        var distancia = response.rows[0].elements[0].distance.text;
+        callback.call(null,tempo, distancia);
+        //Math.round(distancia/1000)
+
+        /*FORMA 1 
+        restoDoSegundos = segundos%60
+        segundos = segundos - restoDoSegundos
+        minutos = segundos/60
+        minuto = minutos%60
+        hora = (minutos - minuto)/60*/
+        /*------*/
+        //segundos = segundos - (segundos%60)
+        //var minuto = (segundos%3600)/60
+        //var hora = (segundos-(segundos%3600))/3600
+        
+      });
+ }

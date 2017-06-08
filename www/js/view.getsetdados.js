@@ -55,20 +55,22 @@ var enviarDados = function(tipo, dados=null, callback){
                 novoImovel.setNome($("#inome").val());
                 novoImovel.setQtdComodos($("#iqtd-comodos").val());
                 novoImovel.setEndereco($("#iendereco").val());
-                novoImovel.setLat('36.55555');
-                novoImovel.setLng('1.88888');
             }else if(dados == 'atualizar'){
                 novoImovel.setId(imovelASerEditado);
                 novoImovel.setNome($("#inome").val());
                 novoImovel.setQtdComodos($("#iqtd-comodos").val());
                 novoImovel.setEndereco($("#iendereco").val());
-                novoImovel.setLat(imoveis[imovelASerEditado].getLat());
-                novoImovel.setLng(imoveis[imovelASerEditado].getLng());
             }
+            //novoImovel.setEndereco("Rua Paraná, 160, SOcorro, Jaboatão dos Guararapes");
+            setTimeout(function() {
+                console.log("Json novoImovel:");
+            console.log(novoImovel.getJson());
             json = {};
             json.dados = novoImovel;
             json.action = dados == 'atualizar' ? 'atualizar' : 'registrar';
             controller.registrar(json, 'imovel');
+            }, 1000);
+            
         break;
 
         case 'remover':
